@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>julie schäffler</title>
+    <link rel="icon" href="assets/icon.svg" type="image/svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a class="selected" href="home.html">julie schäffler</a>
+        <nav>
+            <ul>
+                <li><a href="info.html">cv,</a></li>
+                <li><a href="portfolio.html">portfolio,</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <pre id="ascii_shell"></pre>
+    <script>
+              const frames1 = [
+  
+  ` _________________________________________ 
+|[] JuliesShell                         |~|
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~|
+|portfolio:> ,∙πºδΣ∙.~:Ω*¿»∙,φτ.        | |
+|portfolio:> ΓΦ»■Ω*φ≈°»»δµµφα∙δ∙∞π°Θ    | |
+|_______________________________________|/|`,
+
+  ` _________________________________________ 
+|[] JuliesShell                         |~|
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~|
+|portfolio:> ?∩ΦΦφ*.:¿¿±ΩπΦδ■,δ∩        | |
+|portfolio:> φτΩ:∩ε√τ«δ÷πΣασ≤¿          | |
+|_______________________________________|/|`,
+
+  ` _________________________________________ 
+|[] JuliesShell                         |~|
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~|
+|portfolio:> ∞·φΣ≤≈α:δ∙√τ¿«∩º*≡π·≈∩     | |
+|portfolio:> ²δΣµ≈≥·π:τ∙Ω∩¿≈·Γασ:δ∩?    | |
+|_______________________________________|/|`
+
+];
+let i1 = 0;
+const el1 = document.getElementById('ascii_shell');
+const fps1 = 5;
+const interval1 = 1000 / fps1;
+setInterval(() => {
+    el1.textContent = frames1[i1++ % frames1.length];
+}, interval1);
+    </script>
+
+    <main class="stage">
+        <div class="image-ring" id="imageRing"></div>
+    </main>
+    <span class="home-text6">
+        I'm an interdisciplinary creative who uses code,
+        critical theory and visual storytelling to view society through
+        intersectional lenses. My projects aim to highlight power structures
+        and prototype empathic, socially and ecologically just
+        futures.
+    </span>
+
+
+
+    <pre id="ascii_cloud"></pre>
+    <script>
+      const frames = [
+  
+        `                         ..·..                                     .-.-.-. 
+                        .'.,...                                   (       )
+                        ..·÷.'.         _                        (  º_ º  )
+                         ..:.·        _( )_                       (._._._) 
+--',,\\/-..                 |         (_)0(_)                               
+          ¡.--+--.,,-,,-..\\|/          (_)                                 
+     .                   \\\\|//.,.-,.,   │/                                 
+    ,    ,   ^                      .,..│..,                               
+      \\/           .        \\/         \\│/ .-.,,..,.-.,                    
+               .                                 .,,.,..,.,.               
+         ,                         .      \\/            .  .,¡..           
+  │              (0)                              .      ¡  ,,,.-.         
+         .       \\│/       .                  │                 .,..       
+     .           ,                  \\/                ,.   \\/    ,-,,      
+ ¡                            ,           ^    .                   ,....   `,
+  
+        `                 '    '  .                                  ~       .-.-.-. 
+               ,       .' ,.                           ~           (       )
+                    .  . ,o.          _                  ~   ~  ~ (  ºo º  )
+                 '  '  .  |,        _( )_             ~       ~    (._._._) 
+--',,\\/-..         . .,    \\       (_)0(_)                ~                 
+          ¡.--+--.,,-,,-..\\|/        (_)\\                                   
+     .                   \\\\|//.,.-,.,   │/                                  
+    ,    ,   ^                      .,..│..,                                
+      \\/           .        \\/         \\│/ .-.,,..,.-.,                     
+               .                                 .,,.,..,.,.                
+         ,                         .      \\/            .  .,¡..            
+  │              (0)                              .      ¡  ,,,.-.          
+         .       \\│/       .                  │                 .,..        
+     .           ,                  \\/                ,.   \\/    ,-,,       
+ ¡                            ,           ^    .                   ,....    `,
+  
+        `                ,      .                                   ~       .-.-.-. 
+                .                                     ~  ~ ~ ~    (       )
+                      ,  ,o.                            ~ ~ ~ ~~ (  ºO º  )
+                 .        |,          _              ~  ~  ~ ~~   (._._._) 
+--',,\\/-..          .      \\        _( )_                ~ ~               
+          ¡.--+--.,,-,,-..\\|/      (_)0(_)                                 
+     .                   \\\\|//.,.-,. (_)\\/                                 
+    ,    ,   ^                      .,..│..,                               
+      \\/           .        \\/         \\│/ .-.,,..,.-.,                    
+               .                                 .,,.,..,.,.               
+         ,                         .      \\/            .  .,¡..           
+  │              (0)                              .      ¡  ,,,.-.         
+         .       \\│/       .                  │                 .,..       
+     .           ,                  \\/                ,.   \\/    ,-,,      
+ ¡                            ,           ^    .                   ,....  `
+  
+      ];
+      let i = 0;
+      const el = document.getElementById('ascii_cloud');
+      const fps = 1.5;
+      const interval = 1000 / fps;
+      setInterval(() => {
+          el.textContent = frames[i++ % frames.length];
+      }, interval);
+    </script>
+
+<pre id="ascii_bird"></pre>
+<script>
+          const frames2 = [
+
+`     
+/^v^\\`,
+
+`_   _
+ ^v^ `,
+
+`\\   /
+ ^v^ `
+
+];
+let i2 = 0;
+const el2 = document.getElementById('ascii_bird');
+const fps2 = 5;
+const interval2 = 1000 / fps2;
+setInterval(() => {
+el2.textContent = frames2[i2++ % frames2.length];
+}, interval2);
+</script>
+
+
+    <footer>
+        <p>please excuse any bugs ^^</p>
+    </footer>
+    <script src="image_ring.js"></script>
+</body>
+
+</html>

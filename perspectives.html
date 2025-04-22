@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perspectives</title>
+    <link rel="icon" href="assets/icon.svg" type="image/svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <a href="home.html">julie schäffler</a>
+        <nav>
+            <ul>
+                <li><a href="info.html">info</a></li>
+                <li><a href="portfolio.html">portfolio</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="project-title">fractured perspectives</h1>
+    <div class="frac-container">
+        <img src="assets/output-onlinegiftools.gif" alt="Fractured GIF" class="frac-gif">
+        <div class="video-container">
+            <video class="fracVideo" id="fracVideo" src="assets/splatt.mp4" autoplay loop muted playsinline></video>
+            <button class="muteToggle" id="muteToggle">
+                <img src="assets/speaker.slash.fill.svg" alt="Unmute" id="muteIcon">
+            </button>
+        </div> 
+        
+        <script>
+            const video = document.getElementById("fracVideo");
+            const muteToggle = document.getElementById("muteToggle");
+            const muteIcon = document.getElementById("muteIcon");
+        
+            muteToggle.addEventListener("click", () => {
+    if (video.muted) {
+        video.muted = false;
+        muteIcon.src = "assets/speaker.fill.svg";         // Symbol für Ton an
+        muteIcon.style.transform = "scale(0.8)";          // Standardgröße
+    } else {
+        video.muted = true;
+        muteIcon.src = "assets/speaker.slash.fill.svg";        // Symbol für stumm
+        muteIcon.style.transform = "scale(1)";        // Größeres Symbol für stumm
+    }
+});
+        </script>
+        <section class="frac-project-info">
+            <p>collection of works portraying bodily alienation through distorted self-perception.
+            </p>
+            <p>[still in progress]
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>please excuse any bugs ^^</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,439 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #710373;
+    color: #ffd000;
+    display: flex;
+    flex-direction: column;
+    cursor: url('assets/cursor.png'), auto;
+}
+a:hover {
+    cursor: url('assets/cursor-filled.png'), auto; 
+}
+
+.selected {
+  font-weight: 600;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+header a {
+    margin: 0;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+header a:hover {
+    color:#710373;
+}
+
+header a {
+    text-decoration: none;
+    color:#ffd000;
+    transition: color 0.3s ease;
+}
+
+.intro {
+    
+    padding: 50px;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    flex-grow: 1;
+}
+
+footer {
+    text-align: right;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 10px;
+    padding-right: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
+    height: 100vh; 
+    padding: 40px 20px;
+    margin-top: 20px;
+    text-align: left; 
+    flex-grow: 1;
+}
+
+.contact h1 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.project-title {
+    text-align: center;
+    padding-top: 64px;
+    font-size: 24px;
+    font-weight: 840;
+}
+
+.project-info {
+    
+    padding: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.alg_fief-project-info {
+    
+    padding: 60px;
+    padding-right: 200px;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.frac-project-info {
+    
+    padding: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    transform: rotate(-90deg);
+    text-align: left;
+    flex-grow: 1;
+}
+
+.shadows-project-info {
+    
+    padding: 40px;
+    padding-left: 35vh;
+    padding-right: 35vh;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: justify;
+    flex-grow: 1;
+}
+
+.shadows-project-info strong {
+    
+
+    font-size: 18px;
+    font-weight: 800;
+    text-align: justify;
+}
+
+.contact ul {
+    font-size: 16px;
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+.contact ul li a {
+  color: #ffd000;
+    text-decoration: none;
+}
+
+.contact ul li a:hover {
+    text-decoration: underline;
+}
+
+.moving-gif {
+    position: absolute;
+    top: 50%;
+    left: -200px; /* Startet links außerhalb des Bildschirms */
+    width: 100px; /* Größe anpassen */
+}
+
+
+
+.frac-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    
+  }
+
+.fracVideo {
+    width: 400px;
+    padding-right: 0px;
+    padding-left: 100px;
+    padding-top: 40px;
+}
+
+.scanVideo {
+    width: 600px;
+    padding-top: 40px;
+}
+
+.frac-gif {
+
+    width: 500px;
+    padding-left: 100px;
+    padding-top: 10px;
+}
+
+.alg_fief_img {
+
+    width: 500px;
+    padding-left: 200px;
+    padding-top: 10px;
+}
+
+.berlin_map_img {
+
+    width: 900px;
+    padding-top: 10px;
+}
+
+.divine_machinery_img {
+
+    width: 350px;
+    padding-bottom: 30px;
+    transform: rotate(0deg);
+}
+
+.correl_img {
+
+    width: 600px;
+    padding-top: 10px;
+}
+
+.info {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    padding-left: 5vw;
+    height: 85vh;  
+    text-align: left; 
+}
+
+
+
+
+.info p {
+    font-size: 15px;
+    font-weight: 600;
+    list-style-type: none;
+
+}
+
+
+.info ul {
+    font-size: 15px;
+    list-style-type: none;
+    font-weight: 500;
+    padding: 0%;
+    margin-top: -4vh;
+}
+
+#info-interests {
+    list-style: circle;
+    list-style-position: inside;
+    margin-bottom: -2vh;
+    flex-grow: 1;
+}
+
+.video-container {
+    position: relative;    
+    display: inline-block; 
+}
+
+
+#muteToggle {
+    position: absolute;    
+    bottom: 10px;          
+    right: 10px;   
+    background-color: transparent; 
+    border: none;                  
+    padding: 0;              
+    cursor: url('assets/cursor-filled.png'), auto;     
+}
+
+#muteIcon {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.unity-container {
+    position: relative;
+    width: 100%;              
+    max-width: 1280px;      
+    margin: 0 auto;           
+    
+}
+
+#unity-canvas {
+    width: 100%;
+    height: auto;  
+    background: #231F20;
+    display: block;         
+    flex-grow: 0;           
+}
+
+
+
+#canvasContainer {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: 0 auto;
+  }
+  #faceCanvas, #bubbleCanvas, #overlayCanvas {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    pointer-events: none;
+  }
+  #faceCanvas {
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  #bubbleCanvas {
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  #overlayCanvas {
+    z-index: 3;
+    top: 0;
+    left: 0;
+  }
+  #Facevideo {
+    display: none;
+  }
+
+
+  .stage {
+    position: relative;
+    width: 100vw;
+    height: calc(60vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    flex-grow: 1;
+    padding-top: 250px;
+  }
+  .image-ring {
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    pointer-events: none;
+  }
+  .image-ring img {
+    position: absolute;
+    width: 70px;
+    height: auto;
+    left: 215px;
+    object-fit: cover;
+    user-select: none;
+    cursor: grab;
+    pointer-events: auto;
+    transition: box-shadow 0.2s;
+  }
+  .dragged {
+    position: fixed !important;
+    width: 70px !important;
+    height: auto;
+    cursor: grabbing;
+    transform: none !important;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  .home-text6 {
+    top: 70px;
+    left: 40px;
+    width: 380px;
+    position: absolute;
+    font-size: 16px;
+  }
+
+  #ascii_cloud {
+    top: 600px;
+    left: 0px;
+    width: 350px;
+    font-size: 10px;
+    position: absolute;
+    line-height:125%;
+  }
+
+  #ascii_shell {
+    top: 325px;
+    left: 620px;
+    width: 350px;
+    font-size: 9px;
+    position: absolute;
+  }
+
+  #ascii_bird {
+    width: 350px;
+    font-size: 9px;
+    position: absolute;
+    left: 55%;
+    top: -2rem;
+    animation: flyDiag 15s linear infinite;
+  }
+  @keyframes flyDiag {
+    0%   { left: 55%; top: -2rem;   }
+    100% { left: 130%; top: 100vh; }
+  }
+
+  #ascii_shelf {
+    bottom: 20px;
+    right: 450px;
+    width: 350px;
+    line-height: 120%;
+    font-size: 10px;
+    position: fixed;
+  }
+
+
+
+  .gallery {
+    position: relative;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .gallery img {
+    position: fixed;
+    width: 60px; 
+    height: auto;
+    object-fit: cover; cursor: grab;
+    user-select: none; z-index: 1;
+  }
+
+  .gallery img.dragged {
+    position: fixed !important;
+    width: 60px !important; 
+    height: auto !important;
+    cursor: grabbing;
+    z-index: 10000 !important;
+    pointer-events: all;
+  }

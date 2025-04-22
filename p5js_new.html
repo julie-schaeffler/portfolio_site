@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>empathic engineering</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+</head>
+<body>
+  <header>
+    <a href="home.html">julie schäffler</a>
+    <nav>
+        <ul>
+            <li><a href="info.html">info</a></li>
+            <li><a href="portfolio.html">portfolio</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+  <div id="canvasContainer">
+    <div id="faceCanvas"></div>
+    <div id="bubbleCanvas"></div>
+    <div id="overlayCanvas"></div>
+  </div>
+  <video id="Facevideo" width="700" height="700" autoplay muted></video>
+  
+  <script>
+    let globalPulse = 0;
+    let fadeAlpha = 255;
+    let lastSpeechTime = 0;
+    let audioVolume = 0; 
+    let headMovement = 0;
+
+    let normalizedFaceLandmarks = null;
+    let speechParticles = [];
+    let lastParticleSpawnTime = 0;
+    const particleThreshold = 0.18;
+    const spawnDelay = 70;
+    
+    let minRadius = 190;
+    let maxRadius = 250;
+    let minSpeed = 0.01;
+    let maxSpeed = 0.025;
+    let minShapeSize = 20;
+    let maxShapeSize = 35;
+
+    let torusColor = [0, 0, 0,];
+    
+    let torusParams = {
+      colorA: [255, 0, 0],
+      colorB: [0, 100, 255],
+      radius: 200,
+      shapeSize: 30,
+      pulseSpeed: 0.01,
+      target: null,
+      current: null
+    };
+    
+    let autoChangeTimer = 0;
+    let transitionTime = 180;
+    let baseTransitionSpeed = 0.08;
+    let fastTransitionSpeed = 0.5;
+    let transitionSpeed = baseTransitionSpeed;
+    
+    const startTime = Date.now();
+    function millis() {
+      return Date.now() - startTime;
+    }
+    function dist(x1, y1, x2, y2) {
+      return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    }
+    
+    function setNewTorusTarget(fast = false) {
+      torusParams.target = {
+        colorA: [Math.floor(Math.random()*256), Math.floor(Math.random()*256), Math.floor(Math.random()*256)],
+        colorB: [Math.floor(Math.random()*256), Math.floor(Math.random()*256), Math.floor(Math.random()*256)],
+        radius: minRadius + Math.random() * (maxRadius - minRadius),
+        shapeSize: minShapeSize + Math.random() * (maxShapeSize - minShapeSize),
+        pulseSpeed: minSpeed + Math.random() * (maxSpeed - minSpeed)
+      };
+      torusParams.current = JSON.parse(JSON.stringify(torusParams));
+      transitionSpeed = fast ? fastTransitionSpeed : baseTransitionSpeed;
+    }
+    
+    function createSpeechParticle(char) {
+  let centerX = 350;
+  let centerY = 350;
+  let mouthX = centerX;
+  let mouthY = centerY;
+  if (normalizedFaceLandmarks && normalizedFaceLandmarks[13]) {
+    mouthX = centerX + (1.3*normalizedFaceLandmarks[13].x);
+    mouthY = centerY + (1.3*normalizedFaceLandmarks[13].y) + 20;
+  }
+  
+  let vx, vy;
+  if (normalizedFaceLandmarks && normalizedFaceLandmarks[1]) {
+    let nx = normalizedFaceLandmarks[1].x;
+    let ny = normalizedFaceLandmarks[1].y;
+    let len = Math.sqrt(nx * nx + ny * ny);
+    if (len > 0.01) {
+      let speed = Math.random() * 2 + 1;
+      vx = -(nx / len) * speed;
+      vy = (ny / len) * speed;
+    } else {
+      vx = 0;
+      vy = - (Math.random() * 2 + 1);
+    }
+  } else {
+    vx = 0;
+    vy = - (Math.random() * 2 + 1);
+  }
+  
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  
+  return {
+    text: char,
+    x: mouthX,
+    y: mouthY,
+    vx: vx,
+    vy: vy,
+    alpha: 255,
+    color: [r, g, b]
+  };
+}
+
+    
+    let audioContext, analyser, microphone, dataArray;
+    navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(stream => {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioContext.createAnalyser();
+      microphone = audioContext.createMediaStreamSource(stream);
+      microphone.connect(analyser);
+      analyser.fftSize = 256;
+      let bufferLength = analyser.frequencyBinCount;
+      dataArray = new Uint8Array(bufferLength);
+    }).catch(err => {
+      console.error("Fehler beim Zugriff auf das Mikrofon:", err);
+    });
+    
+    const videoElement = document.getElementById('Facevideo');
+    const faceMesh = new FaceMesh({
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
+    });
+    
+    faceMesh.setOptions({
+      maxNumFaces: 1,
+      refineLandmarks: true,
+      minDetectionConfidence: 0.5,
+      minTrackingConfidence: 0.5
+    });
+    
+    faceMesh.onResults(onFaceResults);
+    
+    function onFaceResults(results) {
+      if (results.multiFaceLandmarks && results.multiFaceLandmarks.length > 0) {
+        const landmarks = results.multiFaceLandmarks[0];
+        
+        let sumX = 0, sumY = 0;
+        for (let i = 0; i < landmarks.length; i++) {
+          sumX += landmarks[i].x;
+          sumY += landmarks[i].y;
+        }
+        let avgX = sumX / landmarks.length;
+        let avgY = sumY / landmarks.length;
+        
+        let maxDist = 0;
+        for (let i = 0; i < landmarks.length; i++) {
+          let dx = landmarks[i].x - avgX;
+          let dy = landmarks[i].y - avgY;
+          let d = Math.sqrt(dx * dx + dy * dy);
+          if (d > maxDist) maxDist = d;
+        }
+        
+        const desiredRadius = 100;
+        normalizedFaceLandmarks = [];
+        for (let i = 0; i < landmarks.length; i++) {
+          normalizedFaceLandmarks.push({
+            x: (landmarks[i].x - avgX) * (desiredRadius / maxDist),
+            y: (landmarks[i].y - avgY) * (desiredRadius / maxDist)
+          });
+        }
+        
+        let nose = landmarks[1];
+        let noseX = (nose.x - avgX) * (desiredRadius / maxDist);
+        let noseY = (nose.y - avgY) * (desiredRadius / maxDist);
+        headMovement = dist(noseX, noseY, 0, 0);
+      }
+    }
+    
+    const camera = new Camera(videoElement, {
+      onFrame: async () => {
+        await faceMesh.send({ image: videoElement });
+      },
+      width: 700,
+      height: 700
+    });
+    camera.start();
+    
+    let overlaySketch = function(p) {
+      p.setup = function() {
+        let cnv = p.createCanvas(700, 700);
+        cnv.parent("overlayCanvas");
+        p.textFont('Helvetica');
+        p.textSize(18);
+        p.textAlign(p.CENTER, p.CENTER);
+      };
+      
+      p.draw = function() {
+  p.clear();
+
+  if (audioVolume > particleThreshold && millis() - lastParticleSpawnTime > spawnDelay) {
+    let charCode = Math.floor(p.random(33, 127));
+    let asciiChar = String.fromCharCode(charCode);
+    speechParticles.push(createSpeechParticle(asciiChar));
+    lastParticleSpawnTime = millis();
+  }
+  
+  for (let i = speechParticles.length - 1; i >= 0; i--) {
+    let sp = speechParticles[i];
+    sp.x += sp.vx;
+    sp.y += sp.vy;
+    sp.alpha -= 2;
+    p.fill(sp.color[0], sp.color[1], sp.color[2], sp.alpha);
+    p.text(sp.text, sp.x, sp.y);
+    if (sp.alpha <= 0) {
+      speechParticles.splice(i, 1);
+    }
+  }
+};
+
+    };
+    new p5(overlaySketch);
+    
+    let faceMeshSketch = function(p) {
+  p.setup = function() {
+    let cnv = p.createCanvas(700, 700);
+    cnv.parent("faceCanvas");
+    p.textFont('Courier New');
+    p.textSize(15);
+    p.textAlign(p.CENTER, p.CENTER);
+  };
+
+  p.draw = function() {
+    p.clear();
+    if (normalizedFaceLandmarks) {
+      p.push();
+      p.translate(p.width / 2, p.height / 2);
+      p.scale(-1.3, 1.3);
+      for (let i = 0; i < normalizedFaceLandmarks.length; i++) {
+        let asciiChar = String.fromCharCode(35 + i % 10);
+        p.fill(0);
+        p.text(asciiChar, normalizedFaceLandmarks[i].x, normalizedFaceLandmarks[i].y);
+      }
+      p.pop();
+    }
+  };
+};
+new p5(faceMeshSketch);
+
+
+    
+    const ringSketch = (p) => {
+  let simplex;
+  let numShapes = 500;
+  let time = 0;
+  
+  p.setup = () => {
+    let cnv = p.createCanvas(700, 700);
+    cnv.parent("bubbleCanvas");
+    p.colorMode(p.RGB, 255);
+    simplex = new SimplexNoise();
+  };
+  
+  // Hilfsfunktion: Zeichnet eine kreisförmige Fläche, gefüllt mit zufälligen ASCII-Zeichen
+  function drawAsciiSurface(centerX, centerY, radius, fillColor) {
+    p.textAlign(p.CENTER, p.CENTER);
+    p.fill(fillColor);
+    // Schrittweite, um die Fläche zu füllen – hier kannst du experimentieren
+    let step = 20;
+    for (let ix = centerX - radius; ix <= centerX + radius; ix += step) {
+      for (let iy = centerY - radius; iy <= centerY + radius; iy += step) {
+        // Prüfe, ob der Punkt im Kreis liegt
+        if (p.dist(ix, iy, centerX, centerY) <= radius) {
+          let charCode = Math.floor(p.random(33, 127));
+          let asciiChar = String.fromCharCode(charCode);
+          p.text(asciiChar, ix, iy);
+        }
+      }
+    }
+  }
+  
+  p.draw = () => {
+    p.clear();
+    time += torusParams.pulseSpeed;
+    
+    // Audioanalyse: Aktualisiere audioVolume
+    if (analyser && dataArray) {
+      analyser.getByteFrequencyData(dataArray);
+      let sum = 0;
+      for (let i = 0; i < dataArray.length; i++) {
+        sum += dataArray[i];
+      }
+      audioVolume = sum / dataArray.length / 255;
+    }
+    
+    let currentTime = millis();
+    let deformationFactor = (currentTime - lastSpeechTime > 2000) ? 0.5 : 1;
+    
+    // Passe pulseSpeed anhand des Audiopegels an (speechRate wurde entfernt)
+    let targetPulseSpeed = 0.007 + (audioVolume * 0.001);
+    torusParams.pulseSpeed = p.lerp(torusParams.pulseSpeed, targetPulseSpeed, 0.004);
+    
+    let volumePulse = 1 + audioVolume;
+    let headPulse = 1 + headMovement / 70;
+    
+    if (torusParams.target) {
+      for (let key of ['radius', 'shapeSize', 'pulseSpeed']) {
+        torusParams[key] += (torusParams.target[key] - torusParams[key]) * transitionSpeed;
+      }
+      for (let i = 0; i < 3; i++) {
+        torusParams.colorA[i] += (torusParams.target.colorA[i] - torusParams.colorA[i]) * transitionSpeed;
+        torusParams.colorB[i] += (torusParams.target.colorB[i] - torusParams.colorB[i]) * transitionSpeed;
+      }
+    }
+    
+    autoChangeTimer++;
+    if (autoChangeTimer > 360) {
+      setNewTorusTarget(false);
+      autoChangeTimer = 0;
+    }
+    
+    let highlightIndex = Math.floor((time * 230) % numShapes);
+    let torusPoints = [];
+    
+    // Berechne die Positionen der Torus-Punkte
+    for (let i = 0; i < numShapes; i++) {
+      let angle = p.TWO_PI * (i / numShapes);
+      let noiseOffset = simplex.noise3D(Math.cos(angle), Math.sin(angle), time + i * 0.01);
+      let localRadius = torusParams.radius + noiseOffset * 100 * deformationFactor;
+      let cx = p.width / 2 + localRadius * Math.cos(angle);
+      let cy = p.height / 2 + localRadius * Math.sin(angle);
+      torusPoints.push({ angle, cx, cy, noiseOffset, index: i });
+    }
+    
+
+    
+    // Ersetze die einzelnen Torus-Formen durch ASCII-Flächen
+    for (let idx = torusPoints.length - 1; idx >= 0; idx--) {
+      let pt = torusPoints[idx];
+      let i = pt.index;
+      let d = Math.abs(i - highlightIndex);
+      if (d > numShapes / 2) d = numShapes - d;
+      let intensity = p.map(d, 0, 70, 0, 1);
+      intensity = p.constrain(intensity, 0, 1);
+      
+      let fromColor = p.color(...torusParams.colorA);
+      let toColor = p.color(...torusParams.colorB);
+      let finalColor = p.lerpColor(fromColor, toColor, intensity);
+      
+      let brightnessGroup = simplex.noise2D(time * 0.3, i * 0.01);
+      let brightnessFactor = p.map(brightnessGroup, -1, 1, 0.5, 1.2);
+      finalColor.setRed(p.red(finalColor) * brightnessFactor * volumePulse);
+      finalColor.setGreen(p.green(finalColor) * brightnessFactor * volumePulse);
+      finalColor.setBlue(p.blue(finalColor) * brightnessFactor * volumePulse);
+      finalColor.setAlpha(100);
+      
+      let dynamicSize = torusParams.shapeSize * (1 + 0.9 * Math.abs(pt.noiseOffset)) * volumePulse;
+      
+      // Statt einer vektorbasierten Form, zeichne eine ASCII-Fläche in einem Kreis
+      drawAsciiSurface(pt.cx, pt.cy, dynamicSize, finalColor);
+    }
+  };
+};
+new p5(ringSketch);
+
+  </script>
+</body>
+</html>

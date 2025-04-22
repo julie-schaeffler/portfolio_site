@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/icon.svg" type="image/svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>social shadow analysis</title>
+  </head>
+  <body>
+    <header>
+    <a href="home.html">julie schäffler</a>
+    <nav>
+        <ul>
+            <li><a href="info.html">info</a></li>
+            <li><a href="portfolio.html">portfolio</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+</header>
+<h1 class="project-title">social shadow analysis</h1>
+<section class="shadows-project-info">
+  <img src="assets/berlinmap.png" class="berlin_map_img">
+  <h1 class="project-title">intro</h1>
+  <p>
+    Access to sunlight in urban environments is critical for the well-being and health of residents. This research project, developed using Unity, investigates the relationship between social inequality and access to sunlight in urban areas, using Berlin as a case study.
+  </p>
+  <p>
+    By simulating solar exposure with computer-based light simulations, the project examines which districts receive the least sunlight on their buildings and explores how these results correlate with socio-economic indicators.
+  </p>
+  <video class="scanVideo" src="assets/solarscan01.mp4" autoplay loop muted playsinline></video>
+  <h1 class="project-title">research questions</h1>
+  <ul>
+    <li>Which districts in Berlin experience the lowest solar exposure on buildings, and how do these data correlate with social factors such as socio-economic status and population?</li>
+    <li>Is there a significant correlation between socio-economic status and solar potential ( sunlit building area per person)?</li>
+  </ul>
+  <h1 class="project-title">objectives</h1>
+  <ul>
+    <li>
+      <strong>Simulation and Analysis:</strong> Develop a Unity-based simulation model using Monte Carlo sampling and raycasting techniques to quantify shadowing and solar exposure on buildings in various planning areas of Berlin.
+    </li>
+    <li>
+      <strong>Social Dimension:</strong> Investigate how socio-economic indicators (status index, population) correlate with solar exposure per capita.
+    </li>
+    <li>
+      <strong>Recommendations:</strong> Derive urban planning improvements and policy recommendations to enhance sunlight access in underexposed districts.
+    </li>
+    <li>
+      <strong>Data Integration:</strong> Merge simulation results with socio-economic data to provide an interdisciplinary perspective on urban solar access.
+    </li>
+  </ul>
+  <h1 class="project-title">context and background</h1>
+  <p>
+    Urban solar access has been a topic of significant interest due to its impact on energy efficiency, urban microclimate, and public health. Studies show that building shadows can dramatically alter local climate conditions. Historical examples, like the observations from Chicago in 1923, highlight the adverse effects of inadequate sunlight on human well-being (Rehan & Islam 2015).
+  </p>
+  <p>
+    This project utilizes the flexibility of Unity to create customizable simulations for analyzing solar exposure in a cost-effective manner.
+  </p>
+  <h1 class="project-title">methodology</h1>
+  <h3>Data and Tools</h3>
+  <ul>
+    <li><strong>Data Sources:</strong> 3D map of Berlin, planning area boundaries, and socio-economic indicators (status index, population).</li>
+    <li><strong>Tools:</strong>
+      <ul>
+        <li><strong>Unity (C#):</strong> For simulating solar exposure using Monte Carlo sampling, raycasting, and spatial analysis.</li>
+        <li><strong>Python:</strong> For statistical analysis and visualization of simulation results.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Simulation Approach</h3>
+  <ul>
+    <li>
+      <strong>Planning Area Assignment:</strong> Existing planning area objects (meshes) are extracted as 2D polygons. Areas lying outside predefined city boundaries are flagged.
+    </li>
+    <li>
+      <strong>Building Association:</strong> Parent objects containing building meshes (with the "Buildings" material) are recursively searched. Buildings are assigned to planning areas based on a representative point (e.g., bounding box center).
+    </li>
+    <li>
+      <strong>Shadow and Solar Exposure Simulation:</strong> Monte Carlo sampling and raycasting are used to compute the proportion of a building’s surface that receives direct sunlight. Only surfaces above the planning area mesh (to avoid ground-level interference) are considered.
+    </li>
+    <li>
+      <strong>Data Aggregation:</strong> Simulation results are aggregated for each planning area. For each area, key metrics such as solar exposure percentage, total building area, and building count are saved in a single CSV file.
+    </li>
+  </ul>
+
+  <h3>Statistical Analysis</h3>
+  <ul>
+    <li>Calculation of Pearson and Spearman correlations between socio-economic indicators (e.g., status index, population) and solar exposure metrics (absolute and per capita).</li>
+    <li>Significance testing using p-values (e.g., via <code>scipy.stats</code> in Python).</li>
+    <li>Visualizations such as scatterplots with regression lines to illustrate trends.</li>
+  </ul>
+
+  <h1 class="project-title">results</h1>
+
+  <ul>
+    <li>
+      <strong>Simulation Output:</strong> For each planning area, a CSV file row is generated containing planning area name, date, time, solar exposure percentage, building count, and total building area.
+    </li>
+    <li>
+      <strong>Statistical Findings:</strong> Initial analyses reveal weak to moderate correlations between social indicators and solar exposure. For instance, a Spearman correlation of -0.327 (p &lt; 0.0001) indicates a statistically significant negative relationship between status index and solar exposure per person.
+    </li>
+    <li>
+      <strong>Visualizations:</strong> Scatterplots with regression lines, time series plots, and distribution charts provide insights into data trends and outliers.
+    </li>
+  </ul>
+<img src="assets/correl.png" class="correl_img">
+  <h1 class="project-title">discussion and interpretation</h1>
+  <ul>
+    <li>
+      <strong>Interpretation:</strong> The findings suggest that planning areas with higher socio-economic status tend to have slightly lower solar exposure per person, potentially due to denser or more complex building structures. However, the relationships remain moderate, indicating that other factors (e.g., building height, urban density) also play a role.
+    </li>
+    <li>
+      <strong>Limitations:</strong> Methodological assumptions (raycasting and Monte Carlo sampling simplifications), data uncertainties (socio-economic and geometric data), and the static nature of the simulation (ignoring temporal dynamics) may limit the accuracy of results.
+    </li>
+    <li>
+      <strong>Outlook:</strong> Future work could incorporate multivariate analyses, non-linear models, and real-world sensor data to better understand the interplay between urban design and solar access. Interactive visualizations could also enhance communication of the results.
+    </li>
+  </ul>
+
+  <h1 class="project-title">documentation</h1>
+  <ul>
+    <li><strong>Source Code:</strong> All Unity scripts and Python analysis code are provided in the appendix, complete with detailed comments and explanations.</li>
+    <li><strong>Visual Materials:</strong> Screenshots, diagrams, and interactive visualizations illustrate the simulation process and analysis results.</li>
+    <li><strong>References:</strong> A bibliography of key literature (e.g., Duffie & Beckman, 2013; Emmanuel, 2005; Oke, 1982) supports the theoretical and methodological framework.</li>
+  </ul>
+
+  <h1 class="project-title">conclusion</h1>
+  <p>
+    "Shadow Analysis Through the Social Eye" combines computational light simulation with socio-economic and urban design analysis to explore the relationship between sunlight access and social inequality in Berlin. By integrating Unity-based simulations with Python-powered statistical analyses, the project demonstrates that planning areas with higher socio-economic status tend to have slightly lower solar exposure per person. Although the correlations are moderate, these insights provide valuable foundations for more equitable and sustainable urban planning.
+  </p>
+
+
+</section>
+<div class="unity-container">
+  <iframe frameborder="0" src="https://itch.io/embed-upload/13463654?color=ffd000" allowfullscreen="" width="1280" height="740"><a href="https://julie1000.itch.io/social-shadow-analysis">Play social shadow analysis on itch.io</a></iframe>        
+  <footer>
+          <p>please excuse any bugs ^^</p>
+      </footer>
+
+  </body>
+</html>
