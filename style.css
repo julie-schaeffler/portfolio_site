@@ -91,8 +91,8 @@ footer {
 .project-title {
     text-align: center;
     padding-top: 64px;
-    font-size: 24px;
-    font-weight: 840;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .project-info {
@@ -129,8 +129,7 @@ footer {
     padding: 40px;
     padding-left: 35vh;
     padding-right: 35vh;
-    font-size: 18px;
-    font-weight: 800;
+    font-size: 16px;
     text-align: justify;
     flex-grow: 1;
 }
@@ -138,8 +137,8 @@ footer {
 .shadows-project-info strong {
     
 
-    font-size: 18px;
-    font-weight: 800;
+    font-size: 16px;
+    font-weight: 600;
     text-align: justify;
 }
 
@@ -160,12 +159,7 @@ footer {
     text-decoration: underline;
 }
 
-.moving-gif {
-    position: absolute;
-    top: 50%;
-    left: -200px; /* Startet links außerhalb des Bildschirms */
-    width: 100px; /* Größe anpassen */
-}
+
 
 
 
