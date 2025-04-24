@@ -75,9 +75,8 @@ footer {
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
-    height: 100vh; 
-    padding: 40px 20px;
-    margin-top: 20px;
+    padding: 0;
+    padding-top: 50vh;
     text-align: left; 
     flex-grow: 1;
 }
@@ -142,13 +141,24 @@ footer {
     text-align: justify;
 }
 
-.contact ul {
-    font-size: 16px;
-    list-style-type: none;
-    padding: 0;
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      
+  justify-content: flex-start;
+  padding: 0;
+  padding-top: 50vh;       
+  text-align: left; 
+  flex-grow: 1;
 }
 
-
+.contact ul {
+  font-size: 16px;
+  list-style: none;
+  width: auto;
+  margin: 13vh auto 0;      
+  padding: 0;
+}
 
 .contact ul li a {
   color: #ffd000;
@@ -156,6 +166,34 @@ footer {
 }
 
 .contact ul li a:hover {
+    text-decoration: underline;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  padding: 0;
+  padding-top: 15vh;
+  text-align: left; 
+  flex-grow: 1;
+}
+
+
+.portfolio ul {
+    font-size: 16px;
+    list-style-type: none;
+    list-style-type: circle;
+    width: auto;
+}
+
+.portfolio ul li a {
+  color: #ffd000;
+    text-decoration: none;
+}
+
+.portfolio ul li a:hover {
     text-decoration: underline;
 }
 
@@ -196,7 +234,7 @@ footer {
 
 .berlin_map_img {
 
-    width: 900px;
+    width: 70vw;
     padding-top: 10px;
 }
 
@@ -325,7 +363,6 @@ footer {
     height: calc(60vh - 100px);
     display: flex;
     justify-content: center;
-    align-items: center;
     overflow: visible;
     flex-grow: 1;
     padding-top: 250px;
@@ -367,7 +404,7 @@ footer {
   }
 
   #ascii_cloud {
-    top: 600px;
+    bottom: -1vh;
     left: 0px;
     width: 350px;
     font-size: 10px;
@@ -376,7 +413,15 @@ footer {
   }
 
   #ascii_shell {
-    top: 325px;
+    position: absolute;
+    top: 360px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px;
+  }
+
+  #ascii_sun {
+    top: 225px;
     left: 620px;
     width: 350px;
     font-size: 9px;
@@ -398,13 +443,20 @@ footer {
 
   #ascii_shelf {
     bottom: 20px;
-    right: 450px;
+    right: 350px;
     width: 350px;
     line-height: 120%;
     font-size: 10px;
     position: fixed;
   }
 
+  #ascii_photo {
+    position: absolute;
+    top: 40vh;
+    left: 51.5%;
+    transform: translate(-50%, -50%);
+    font-size: 5px;
+  }
 
 
   .gallery {

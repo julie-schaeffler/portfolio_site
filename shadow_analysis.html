@@ -21,7 +21,56 @@
 </header>
 <h1 class="project-title">social shadow analysis</h1>
 <section class="shadows-project-info">
-  <img src="assets/berlinmap.png" class="berlin_map_img">
+  
+  <pre id="ascii_sun"></pre>
+  <script>
+            const frames1 = [
+
+`          .      '      .           
+    .      .     :     .      .     
+     '.        ______       .'      
+       '  _.-"´      ´"-._ '        
+        .'                '.        
+ ´'--. /                    \ .--'´ 
+      /                      \      
+     ;                        ;     
+- -- |                        | -- -
+     |                        |     
+     ;   .====.,              ;     
+ .-'  \  |.::'||      .=====.,  '-. 
+    _ _´_| :::|!__.,  |:::::|!_,    
+     |: :|::: |:: |!__|; :: |: |    
+     |:::| _::|: :|:::|:===:|::|    
+     !_[]![_]_!_[]![]_!_[__]![]!    `,
+
+`                                    
+           .     :     .            
+               ______               
+       '  _.-"´      ´"-._ '        
+        .'                '.        
+     . /                    \ .     
+      /                      \      
+     ;                        ;     
+   - |                        | -   
+     |                        |     
+     ;   .====.,              ;     
+   '  \  |.::'||      .=====.,  '   
+    _ _´_| :::|!__.,  |:::::|!_,    
+     |: :|::: |:: |!__|; :: |: |    
+     |:::| _::|: :|:::|:===:|::|    
+     !_[]![_]_!_[]![]_!_[__]![]!  `
+
+];
+let i1 = 0;
+const el1 = document.getElementById('ascii_sun');
+const fps1 = 5;
+const interval1 = 1000 / fps1;
+setInterval(() => {
+  el1.textContent = frames1[i1++ % frames1.length];
+}, interval1);
+  </script>
+<img src="assets/berlinmap.png" class="berlin_map_img">
+
   <p>
     Sunlight is one of the most important factors for well-being and health, especially in urban spaces. This Unity based simulative research project explores the connection between social status and the accessibility of sunlight in cities, using Berlin as an example.  
   </p>
