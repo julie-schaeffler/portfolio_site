@@ -25,6 +25,7 @@ header {
     padding: 20px;
     font-size: 18px;
     text-decoration: none;
+    z-index: 1;
 }
 
 header a {
@@ -177,6 +178,7 @@ footer {
   padding: 0;
   padding-top: 15vh;
   text-align: left; 
+  z-index: 1;
   flex-grow: 1;
 }
 
@@ -458,6 +460,17 @@ footer {
     font-size: 5px;
   }
 
+
+  #ascii_stars {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    height: 98vh;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 9px;
+    overflow: hidden;
+  }
 
   .gallery {
     position: relative;
