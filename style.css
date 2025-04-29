@@ -534,6 +534,22 @@ footer {
     gap: 3rem;
   }
 
+  .vint-container {
+    display: flex;
+    text-align: justify;
+    flex-wrap: wrap;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    gap: 3rem;
+  }
+
+  .vint-project-title {
+    text-align: center;
+    padding-top: 85vh;
+    font-size: 16px;
+    font-weight: 600;
+}
+
   .ssa-img-container {
     display: flex;
     text-align: justify;

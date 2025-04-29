@@ -2,7 +2,8 @@ const IMG_DATA = [
     { src: 'assets/ring/new/ring1.png', href: 'portfolio.html' },
     { src: 'assets/ring/new/ring2.png', href: 'perspectives.html' },
     { src: 'assets/ring/new/ring4.png', href: 'shadow_analysis.html' },
-    { src: 'assets/ring/new/ring3.png', href: 'algorithmic_fiefdom.html' }
+    { src: 'assets/ring/new/ring3.png', href: 'algorithmic_fiefdom.html' },
+    { src: 'assets/ring/new/ring5.png', href: 'p5js_new.html' }
     
   ];
   const RADIUS = 230;
