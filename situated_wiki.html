@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <title>situated wiki</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">julie schäffler</a>
+        <nav>
+            <ul>
+                <li><a href="info.html">cv,</a></li>
+                <li><a href="portfolio.html">portfolio,</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="project-title">situated wiki</h1>
+
+    <pre id="ascii_wiki">
+
+                                        @@@ @@                                                       @@@**@                                           
+                                      ++#+.:+:=                                              @@@%%@ -:++   -@                                         
+                                    *%-   =* -                        @#=--*%         @@@%+:       =@#.=:     *@%                                     
+                                #+-.@*-*==- =                        %*.   .+@@@@@#*=. =#.              -*+.     :#                                   
+                               ==@@@ -+=+@@                          @@+                -%=:-%%#%:     %%#%##%#-   *                                  
+                             @: -@*   .-* %                     @@@*-.     --              ::    %=    +-+**#*#*    =                                 
+                            @:  =@*    *::                    %=          :%%@%#:. ++         :  *#     =-=-#*@-     .*                               
+                          @*  %%*     *-:*                    =+         *+-   =:. *%       =@-=*=       =--@*         %*%                            
+                         +  =- #.   -%=.=                     @#  .*#+*+  *+   %=:@%@.      +*                     .*%@@%+:@                          
+                       @#  -+ @%##*-#+.=                       @*+#=@ @@+     @*    *#       =%.            ==.   .@-     -:%                         
+                      %+*%+         *+:@            *=*@        @%*%+++@%    =                 @=       :#@@+:*=    #-     -#@                        
+                     %:      :=:    :=++##       #*=:--+@ @#=-:-=#@#***-      .+%@#**#@=        =%: .=%@#-     #*::+@=      .=@                       
+                    %:  :   .@@.       .+.@      %+    +**++-.   #.         :@#:      @+       :=%@@%=.          --:   ==     -@                      
+                   @+ -@@=@%@@     :: .++.@      %#+             +-         *@:      .@+--=*%@@*-. :%-                =.*+     #@                     
+                  @%= =-:=@%%    =#-+@%-+@@%++*#%#-              *-           *@@+     .::.          @-                ##@+    -+                     
+                  -=.     +=    =+.#+*+=-#*==:                   -+            .@*                   +%            #=   # :.    -=                    
+                 #-+            *:-      +-                       #:    :+#@@%@%.           =.   =@@@@*             #*   .*:     =#                   
+                @%+  =#=*@     =-=        #                    .:=@@###+-:          .+##@=:#-   -@                   ==--.:     :#@                   
+                #    *: *-     =--     -+*=           .-+**+-:.   -@:        :==*%=+:+:#-  @.   :@      .=-            :==    %@*=+#                  
+               #-    *.-#      -*+-.::==-::-:.     -+.             #*          ===. .+=#. .@     *+    .@=+@:                .@   :%                  
+               @@%#*#-  #@%%@@%#@+.        .=#-    :*.             :%:           =-+  ==+:=%      *%++*@-  -@:         .%@@=  -%   *                  
+               =   --           #:        :*#=     :%-              #=            =-==#++:#*                =@.      :@@-  #:  #-  -@                 
+              %:   =@+.         *:        .+@%    +#.        :+++. +%=              % +  .@:                 #+    -@@:    =+  @- -+%                 
+              #.   =-#%+        *.           ....          #@=. :++-                 :-                      :#. #@#:      -%@@*  : =                 
+              @:   ###=#%      :#                         :%:                               =#%@@@+          :@@%+             -%..-*                 
+              .    %*+:   +%*#@#.           .*@#===+=     =#                            +@%*=:   .@:     .+%@%@=             .@#*- =+                 
+              #.   @#*@-  #                +--     = --    %+    =+*+:                -@*.       %*  -*%@#=.  -%.            @ %@=  =                 
+              +.   *#=#=  #               = .       : *    .@*-*@:  .+@+              %#.       :@@@%+:        *#    -#@#    @#@*+  =                 
+              =     +**   #+:#@%          -..:      - #       :        %#              +@%-                     ##  -%:  %:   -@%+  *                 
+              *: .@=#*     -+  =*          +:=     =+* -               .@-               %%                      -@*:    *+ #%@#-* *@                 
+              @+ :#   .         %.           #%@  -@%#- -               %#            :@@%         :#*@.                 %-   -#-+#-@                 
+               %#+@   :         #:         *:.  * .#*+-                 %%       :+@@%*:      :#+   + *             .#@@@#    :: *-:@                 
+               % ..   -         #:          :                   .-+*%@@@@@%#**##*+-.      .@# -    :@= =           -%.           = =                  
+               @-     :-        *-                       :+#@@#+=:..    %#                   : +  .%:* +           ++         #+ =.*                  
+                %       =***=---##*##**######*:       %%*=:             ##                   - +  %= ::.:          +*       -#@-:=-=                  
+                @+  #%+      :.:%+            +%     .@+                *#                   .: *#*   * =          :@.    .*= %%* -                   
+                 @+ *:.@-       #:           .#@       -@-              -@-     -%%#%@*       = +#    @+*:          *%.  #+      .*                   
+                  -+=%%*#+      #.           #=       =@@-               *%.  +@#.    %+      :  @%:                 =@@#        -                    
+                  @#-#: *%%-    +-            =@@@@%#+:                   :%@%=       +%     *%-      -*#=          =%#@.   .@#=:                     
+                   @*.*#*@%      #-   .-.         .+    .                             *%         -%@#=- :#=      .*%:  @   +@@-.@                     
+                    + ++*##-      +#@@#-=@-       =**-  ++-+@.                :#@@@@@%@-      :@%=      -%.   .=#+    -#  -@%*:@                      
+                     = =  -%.             %*    :*@=+++@%+*+#=              :@%:             +%.        %%**#%+:      #.  +-%*@                       
+                      -   .:.       ..    .%:     *@%#@-#+#.@*             -@=               -@@*        ..          +:    #@@                        
+                       *.+*::     .@%=*#%%@@     *=*@-=+:#-+**+            +@                  %@=             .*%%%+    .@@@                         
+                        @+@-  .   -@              :+#@@#-#=#.=             -@+            :*@%*.  -*=**+      =-          -@                          
+                         +:   :.   %#             .*#*   =@@%***-           *@@#%@@@@@%%#+-       :    .:    =*   .+.    #                            
+                          @:   .=-. @+               :             :+%@%#*==-*@*                      #:.    +@##+-.   -@                             
+                            #       :#@###*++====--::         :#@*=:.         =%%:                    ++         -   .+                               
+                              =:**:   =#.           .@.      :@-                :+%%:                -.+       -. -+*@                                
+                               @%%%@-   #*          +@        .*%:                :@+                *=:      +=: #%                                  
+                                 %+-@=   :@-         ##+++++*##%#.         .=*#%#%#.                 +*-   -++  .+                                    
+                                   #@@@%:@@@*                           @@+.                     :-. .@+-: :* .#                                      
+                                      @@@@@*             *@%@@@@#.     :@+      =%@@@%         +#:       .  *@                                        
+                                        @=  +#: =*:       .*@+    :%+   =@%*#@#=    .@*      .:-.   %@@@@@@                                           
+                                           @-. :-  *#:    *%%%. .    #+              +@+..      =**#@%-@                                              
+                                              @+-.   :#*:  =#@##%*%##+=        ...   *%  .=+-.%@**+*@                                                 
+                                                  %==-:.=%*..   .....  .@%#-         +%%#+-=:-++%@                                                    
+                                                       #-%@#-==-:   -:.-@%@##.       #@@%%%%@                                                         
+                                                             @*  %*:-:.::-*%#==*:#-   %@                                                              
+                                                             @@@@@: #%*#@@@@@@@* .#@@@@@                                                              
+                                                             @*           *           @@                                                              
+                                                             @%          .=           @@                                                              
+                                                             @@=+        .#+*=      +*@                                                               
+                                                             @@*=         =-+-     :* @                                                               
+                                                             @#          --          =@                                                               
+                                                             @#   @ .+    +           @                                                               
+                                                             @#   .# =   -@#@@%%::%@@@@                                                               
+                                                             @#           +    #  *   @                                                               
+                                                             @#           +     **    @                                                               
+                                                             @@*       =-:+         :@@                                                               
+                                                              %:*     #             *+@                                                               
+                                                              @+       ---+          :@                                                               
+                                                              @.  +=-+    =           @                                                               
+                                                              @:  -=.=    +  ..       @                                                               
+                                                              @-     :*+=-*    +.+:   @                                                               
+                                        @@@@@@@@@@@@@@@@@@@@@@#           +    # =-   @@@@@@@@@@%%%@@@@@@@@@@                                         
+                                        @      #:::       ==.#         . .+            --           *:==.   *@                                        
+                                        @         :=     +:           #  :          @.==                *   #@                                        
+                                        @      %:==       :--#        :++++         #*++            +=--    %@                                        
+                                        @      %             %            =.           +:           *      =@@                                        
+                                        @      @            .*            +            +.           --    * @@                                        
+                                        @%+.:-+@#+- .# #--+%@@-..%: %=-=+#@#+-:+=-*--+*@#-  --:+   .#@@@+=@ @@                                        
+                                        @.@    @    *. +:   =-   #. =:   .+    #  *    +:   + .%    -:      @@                                        
+                                        @=     %            #.    +#=    =:     ::     +:           =:      @                                         
+                                       @%       *=-=        :**#.        .*==*     .%+*+             *=**   @                                         
+                                       @#      :+++-        :+-+-         +=*:     .#:-.              . =:  @                                         
+                                        @@@@@@@@%%%%%%%%%%%%@@@-         -:         =%@@@%%%%%%%%@@@@@@@@@@%@                                         
+                                                              @-  % :=   .+    :+ * =@                                                                
+                                                              @@=-@.--  :*@@#=:.* * -@                                                                
+                                                              @-          +         .@                                                                
+                                                              #-          +         :@                                                                
+                                                              @#          *-=-       @                                                                
+                                                              @%=            #       @                                                                
+                                                              @*          *:-.       @                                                                
+                                                              @-          *          @                                                                
+                                                              @#-:        *-=++    ..@@                                                               
+                                                              @:  =-:=    +    # +:  *@                                                               
+                                                              @:  @ .+    +    #.=-  +@                                                               
+                                                              @-       .  +          +@                                                               
+                                                              @@.     #  -          @+@                                                               
+                                                              @#      .+++=         *%@                                                               
+                                                              %.      ..:-#+==++*####@@                                                               
+                                                               @@@@@                                                            
+  </pre>
+
+    <div id="wikis-intro">
+        <p>
+            Feminist theory has been calling for a critically situated perspective
+            on knowledge since Donna Haraway. Wikipedia has also claimed to be “the
+            sum of all knowledge”, a apparently objective point of view.
+        </p>
+        <p>
+            This project analyses this tension: How is feminist knowledge
+            constructed and treated differently in various language versions?
+        </p>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>research questions</strong>
+    </p>
+
+    <div class="ssa-container">
+        <div class="ssa-block-lit">
+            <ol>
+                <li>
+                    <a>What are the quantitative differences between language versions
+                        of feminist articles on Wikipedia, and are there epistemic
+                        patterns that can be identified from them?</a>
+                </li>
+                <li>
+                    <a>What qualitative differences can be seen in selected Wikipedia
+                        articles between language versions in a feminist context?</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="wiki-map">
+        <script type="text/javascript">
+            window.PlotlyConfig = { MathJaxConfig: "local" };
+        </script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+        <div id="cca8d0b7-4488-4f32-84d5-839385fea472" class="plotly-graph-div" style="height: 100%; width: 100%"></div>
+        <script type="text/javascript">
+            window.PLOTLYENV = window.PLOTLYENV || {};
+            if (document.getElementById("cca8d0b7-4488-4f32-84d5-839385fea472")) {
+                Plotly.newPlot(
+                    "cca8d0b7-4488-4f32-84d5-839385fea472",
+                    [
+                        {
+                            coloraxis: "coloraxis",
+                            customdata: {
+                                dtype: "i2",
+                                bdata:
+                                    "LgW3BWEFegXsCVsKqx+rH24HhwrsCasfhQFsBasfWwq3Basfqx+HClsKywJbCrcFWwpbCqMC+gFuB6sfWwrsCVsK7AlbCmEFhwqrH1sKqx9bCqsfywJbCvMA2gKrHy4F7AlrBKsf7Am0AqsfSgLsCewJ7AmrH24HhwrLAuwJhwpbCoUBtwXsCVsKDQPyAasf7AlbClsKKwACA0oCtwVbCuwJ7AlsBewJ7AnLAlsKawSFAbcFDQNhBewJLgWrH+wJowLLArQDWwqrH2sEqx9bCqYB7Ak=",
+                                shape: "106, 1",
+                            },
+                            geo: "geo",
+                            hovertemplate:
+                                "\u003cb\u003e%{hovertext}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eiso_alpha=%{location}\u003cbr\u003ecoverage=%{z}\u003cextra\u003e\u003c\u002fextra\u003e",
+                            hovertext: [
+                                "PERSISCH",
+                                "PORTUGIESISCH",
+                                "SCHWEDISCH",
+                                "KATALANISCH",
+                                "ARABISCH",
+                                "SPANISCH",
+                                "ENGLISCH",
+                                "ENGLISCH",
+                                "DEUTSCH",
+                                "FRANZ\u00d6SISCH",
+                                "ARABISCH",
+                                "ENGLISCH",
+                                "SERBISCH",
+                                "RUSSISCH",
+                                "ENGLISCH",
+                                "SPANISCH",
+                                "PORTUGIESISCH",
+                                "ENGLISCH",
+                                "ENGLISCH",
+                                "FRANZ\u00d6SISCH",
+                                "SPANISCH",
+                                "CHINESISCH",
+                                "SPANISCH",
+                                "PORTUGIESISCH",
+                                "SPANISCH",
+                                "SPANISCH",
+                                "T\u00dcRKISCH",
+                                "TSCHECHISCH",
+                                "DEUTSCH",
+                                "ENGLISCH",
+                                "SPANISCH",
+                                "ARABISCH",
+                                "SPANISCH",
+                                "ARABISCH",
+                                "SPANISCH",
+                                "SCHWEDISCH",
+                                "FRANZ\u00d6SISCH",
+                                "ENGLISCH",
+                                "SPANISCH",
+                                "ENGLISCH",
+                                "SPANISCH",
+                                "ENGLISCH",
+                                "CHINESISCH",
+                                "SPANISCH",
+                                "UNGARISCH",
+                                "INDONESISCH",
+                                "ENGLISCH",
+                                "PERSISCH",
+                                "ARABISCH",
+                                "ITALIENISCH",
+                                "ENGLISCH",
+                                "ARABISCH",
+                                "JAPANISCH",
+                                "ENGLISCH",
+                                "KOREANISCH",
+                                "ARABISCH",
+                                "ARABISCH",
+                                "ARABISCH",
+                                "ENGLISCH",
+                                "DEUTSCH",
+                                "FRANZ\u00d6SISCH",
+                                "CHINESISCH",
+                                "ARABISCH",
+                                "FRANZ\u00d6SISCH",
+                                "SPANISCH",
+                                "SERBISCH",
+                                "PORTUGIESISCH",
+                                "ARABISCH",
+                                "SPANISCH",
+                                "NIEDERL\u00c4NDISCH",
+                                "NORWEGISCH",
+                                "ENGLISCH",
+                                "ARABISCH",
+                                "SPANISCH",
+                                "SPANISCH",
+                                "WARAY-WARAY",
+                                "POLNISCH",
+                                "KOREANISCH",
+                                "PORTUGIESISCH",
+                                "SPANISCH",
+                                "ARABISCH",
+                                "ARABISCH",
+                                "RUSSISCH",
+                                "ARABISCH",
+                                "ARABISCH",
+                                "CHINESISCH",
+                                "SPANISCH",
+                                "ITALIENISCH",
+                                "SERBISCH",
+                                "PORTUGIESISCH",
+                                "NIEDERL\u00c4NDISCH",
+                                "SCHWEDISCH",
+                                "ARABISCH",
+                                "PERSISCH",
+                                "ENGLISCH",
+                                "ARABISCH",
+                                "T\u00dcRKISCH",
+                                "CHINESISCH",
+                                "UKRAINISCH",
+                                "SPANISCH",
+                                "ENGLISCH",
+                                "ITALIENISCH",
+                                "ENGLISCH",
+                                "SPANISCH",
+                                "VIETNAMESISCH",
+                                "ARABISCH",
+                            ],
+                            locations: [
+                                "AFG",
+                                "AGO",
+                                "ALA",
+                                "AND",
+                                "ARE",
+                                "ARG",
+                                "ATG",
+                                "AUS",
+                                "AUT",
+                                "BEL",
+                                "BHR",
+                                "BHS",
+                                "BIH",
+                                "BLR",
+                                "BLZ",
+                                "BOL",
+                                "BRA",
+                                "BRB",
+                                "CAN",
+                                "CHE",
+                                "CHL",
+                                "CHN",
+                                "COL",
+                                "CPV",
+                                "CRI",
+                                "CUB",
+                                "CYP",
+                                "CZE",
+                                "DEU",
+                                "DMA",
+                                "DOM",
+                                "DZA",
+                                "ECU",
+                                "EGY",
+                                "ESP",
+                                "FIN",
+                                "FRA",
+                                "GBR",
+                                "GNQ",
+                                "GRD",
+                                "GTM",
+                                "GUY",
+                                "HKG",
+                                "HND",
+                                "HUN",
+                                "IDN",
+                                "IRL",
+                                "IRN",
+                                "IRQ",
+                                "ITA",
+                                "JAM",
+                                "JOR",
+                                "JPN",
+                                "KNA",
+                                "KOR",
+                                "KWT",
+                                "LBN",
+                                "LBY",
+                                "LCA",
+                                "LIE",
+                                "LUX",
+                                "MAC",
+                                "MAR",
+                                "MCO",
+                                "MEX",
+                                "MNE",
+                                "MOZ",
+                                "MRT",
+                                "NIC",
+                                "NLD",
+                                "NOR",
+                                "NZL",
+                                "OMN",
+                                "PAN",
+                                "PER",
+                                "PHL",
+                                "POL",
+                                "PRK",
+                                "PRT",
+                                "PRY",
+                                "PSE",
+                                "QAT",
+                                "RUS",
+                                "SAU",
+                                "SDN",
+                                "SGP",
+                                "SLV",
+                                "SMR",
+                                "SRB",
+                                "STP",
+                                "SUR",
+                                "SWE",
+                                "SYR",
+                                "TJK",
+                                "TTO",
+                                "TUN",
+                                "TUR",
+                                "TWN",
+                                "UKR",
+                                "URY",
+                                "USA",
+                                "VAT",
+                                "VCT",
+                                "VEN",
+                                "VNM",
+                                "YEM",
+                            ],
+                            name: "",
+                            z: {
+                                dtype: "i2",
+                                bdata:
+                                    "LgW3BWEFegXsCVsKqx+rH24HhwrsCasfhQFsBasfWwq3Basfqx+HClsKywJbCrcFWwpbCqMC+gFuB6sfWwrsCVsK7AlbCmEFhwqrH1sKqx9bCqsfywJbCvMA2gKrHy4F7AlrBKsf7Am0AqsfSgLsCewJ7AmrH24HhwrLAuwJhwpbCoUBtwXsCVsKDQPyAasf7AlbClsKKwACA0oCtwVbCuwJ7AlsBewJ7AnLAlsKawSFAbcFDQNhBewJLgWrH+wJowLLArQDWwqrH2sEqx9bCqYB7Ak=",
+                            },
+                            type: "choropleth",
+                            marker: { line: { color: "#ffd000", width: 0.5 } },
+                            colorbar: {
+                                tickfont: { color: "#ffd000" },
+                                title: { font: { color: "#ffd000" } },
+                            },
+                        },
+                    ],
+                    {
+                        template: {
+                            data: {
+                                histogram2dcontour: [
+                                    {
+                                        type: "histogram2dcontour",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                        colorscale: [
+                                            [0.0, "#0d0887"],
+                                            [0.1111111111111111, "#46039f"],
+                                            [0.2222222222222222, "#7201a8"],
+                                            [0.3333333333333333, "#9c179e"],
+                                            [0.4444444444444444, "#bd3786"],
+                                            [0.5555555555555556, "#d8576b"],
+                                            [0.6666666666666666, "#ed7953"],
+                                            [0.7777777777777778, "#fb9f3a"],
+                                            [0.8888888888888888, "#fdca26"],
+                                            [1.0, "#f0f921"],
+                                        ],
+                                    },
+                                ],
+                                choropleth: [
+                                    {
+                                        type: "choropleth",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                    },
+                                ],
+                                histogram2d: [
+                                    {
+                                        type: "histogram2d",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                        colorscale: [
+                                            [0.0, "#0d0887"],
+                                            [0.1111111111111111, "#46039f"],
+                                            [0.2222222222222222, "#7201a8"],
+                                            [0.3333333333333333, "#9c179e"],
+                                            [0.4444444444444444, "#bd3786"],
+                                            [0.5555555555555556, "#d8576b"],
+                                            [0.6666666666666666, "#ed7953"],
+                                            [0.7777777777777778, "#fb9f3a"],
+                                            [0.8888888888888888, "#fdca26"],
+                                            [1.0, "#f0f921"],
+                                        ],
+                                    },
+                                ],
+                                heatmap: [
+                                    {
+                                        type: "heatmap",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                        colorscale: [
+                                            [0.0, "#0d0887"],
+                                            [0.1111111111111111, "#46039f"],
+                                            [0.2222222222222222, "#7201a8"],
+                                            [0.3333333333333333, "#9c179e"],
+                                            [0.4444444444444444, "#bd3786"],
+                                            [0.5555555555555556, "#d8576b"],
+                                            [0.6666666666666666, "#ed7953"],
+                                            [0.7777777777777778, "#fb9f3a"],
+                                            [0.8888888888888888, "#fdca26"],
+                                            [1.0, "#f0f921"],
+                                        ],
+                                    },
+                                ],
+                                contourcarpet: [
+                                    {
+                                        type: "contourcarpet",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                    },
+                                ],
+                                contour: [
+                                    {
+                                        type: "contour",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                        colorscale: [
+                                            [0.0, "#0d0887"],
+                                            [0.1111111111111111, "#46039f"],
+                                            [0.2222222222222222, "#7201a8"],
+                                            [0.3333333333333333, "#9c179e"],
+                                            [0.4444444444444444, "#bd3786"],
+                                            [0.5555555555555556, "#d8576b"],
+                                            [0.6666666666666666, "#ed7953"],
+                                            [0.7777777777777778, "#fb9f3a"],
+                                            [0.8888888888888888, "#fdca26"],
+                                            [1.0, "#f0f921"],
+                                        ],
+                                    },
+                                ],
+                                surface: [
+                                    {
+                                        type: "surface",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                        colorscale: [
+                                            [0.0, "#0d0887"],
+                                            [0.1111111111111111, "#46039f"],
+                                            [0.2222222222222222, "#7201a8"],
+                                            [0.3333333333333333, "#9c179e"],
+                                            [0.4444444444444444, "#bd3786"],
+                                            [0.5555555555555556, "#d8576b"],
+                                            [0.6666666666666666, "#ed7953"],
+                                            [0.7777777777777778, "#fb9f3a"],
+                                            [0.8888888888888888, "#fdca26"],
+                                            [1.0, "#f0f921"],
+                                        ],
+                                    },
+                                ],
+                                mesh3d: [
+                                    {
+                                        type: "mesh3d",
+                                        colorbar: { outlinewidth: 0, ticks: "" },
+                                    },
+                                ],
+                                scatter: [
+                                    {
+                                        fillpattern: {
+                                            fillmode: "overlay",
+                                            size: 10,
+                                            solidity: 0.2,
+                                        },
+                                        type: "scatter",
+                                    },
+                                ],
+                                parcoords: [
+                                    {
+                                        type: "parcoords",
+                                        line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scatterpolargl: [
+                                    {
+                                        type: "scatterpolargl",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                bar: [
+                                    {
+                                        error_x: { color: "#2a3f5f" },
+                                        error_y: { color: "#2a3f5f" },
+                                        marker: {
+                                            line: { color: "#E5ECF6", width: 0.5 },
+                                            pattern: {
+                                                fillmode: "overlay",
+                                                size: 10,
+                                                solidity: 0.2,
+                                            },
+                                        },
+                                        type: "bar",
+                                    },
+                                ],
+                                scattergeo: [
+                                    {
+                                        type: "scattergeo",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scatterpolar: [
+                                    {
+                                        type: "scatterpolar",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                histogram: [
+                                    {
+                                        marker: {
+                                            pattern: {
+                                                fillmode: "overlay",
+                                                size: 10,
+                                                solidity: 0.2,
+                                            },
+                                        },
+                                        type: "histogram",
+                                    },
+                                ],
+                                scattergl: [
+                                    {
+                                        type: "scattergl",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scatter3d: [
+                                    {
+                                        type: "scatter3d",
+                                        line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scattermap: [
+                                    {
+                                        type: "scattermap",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scattermapbox: [
+                                    {
+                                        type: "scattermapbox",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scatterternary: [
+                                    {
+                                        type: "scatterternary",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                scattercarpet: [
+                                    {
+                                        type: "scattercarpet",
+                                        marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                    },
+                                ],
+                                carpet: [
+                                    {
+                                        aaxis: {
+                                            endlinecolor: "#2a3f5f",
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            minorgridcolor: "white",
+                                            startlinecolor: "#2a3f5f",
+                                        },
+                                        baxis: {
+                                            endlinecolor: "#2a3f5f",
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            minorgridcolor: "white",
+                                            startlinecolor: "#2a3f5f",
+                                        },
+                                        type: "carpet",
+                                    },
+                                ],
+                                table: [
+                                    {
+                                        cells: {
+                                            fill: { color: "#EBF0F8" },
+                                            line: { color: "white" },
+                                        },
+                                        header: {
+                                            fill: { color: "#C8D4E3" },
+                                            line: { color: "white" },
+                                        },
+                                        type: "table",
+                                    },
+                                ],
+                                barpolar: [
+                                    {
+                                        marker: {
+                                            line: { color: "#E5ECF6", width: 0.5 },
+                                            pattern: {
+                                                fillmode: "overlay",
+                                                size: 10,
+                                                solidity: 0.2,
+                                            },
+                                        },
+                                        type: "barpolar",
+                                    },
+                                ],
+                                pie: [{ automargin: true, type: "pie" }],
+                            },
+                            layout: {
+                                autotypenumbers: "strict",
+                                colorway: [
+                                    "#636efa",
+                                    "#EF553B",
+                                    "#00cc96",
+                                    "#ab63fa",
+                                    "#FFA15A",
+                                    "#19d3f3",
+                                    "#FF6692",
+                                    "#B6E880",
+                                    "#FF97FF",
+                                    "#FECB52",
+                                ],
+                                font: { color: "#2a3f5f" },
+                                hovermode: "closest",
+                                hoverlabel: { align: "left" },
+                                paper_bgcolor: "white",
+                                plot_bgcolor: "#E5ECF6",
+                                polar: {
+                                    bgcolor: "#E5ECF6",
+                                    angularaxis: {
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        ticks: "",
+                                    },
+                                    radialaxis: {
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        ticks: "",
+                                    },
+                                },
+                                ternary: {
+                                    bgcolor: "#E5ECF6",
+                                    aaxis: {
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        ticks: "",
+                                    },
+                                    baxis: {
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        ticks: "",
+                                    },
+                                    caxis: {
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        ticks: "",
+                                    },
+                                },
+                                coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                colorscale: {
+                                    sequential: [
+                                        [0.0, "#0d0887"],
+                                        [0.1111111111111111, "#46039f"],
+                                        [0.2222222222222222, "#7201a8"],
+                                        [0.3333333333333333, "#9c179e"],
+                                        [0.4444444444444444, "#bd3786"],
+                                        [0.5555555555555556, "#d8576b"],
+                                        [0.6666666666666666, "#ed7953"],
+                                        [0.7777777777777778, "#fb9f3a"],
+                                        [0.8888888888888888, "#fdca26"],
+                                        [1.0, "#f0f921"],
+                                    ],
+                                    sequentialminus: [
+                                        [0.0, "#0d0887"],
+                                        [0.1111111111111111, "#46039f"],
+                                        [0.2222222222222222, "#7201a8"],
+                                        [0.3333333333333333, "#9c179e"],
+                                        [0.4444444444444444, "#bd3786"],
+                                        [0.5555555555555556, "#d8576b"],
+                                        [0.6666666666666666, "#ed7953"],
+                                        [0.7777777777777778, "#fb9f3a"],
+                                        [0.8888888888888888, "#fdca26"],
+                                        [1.0, "#f0f921"],
+                                    ],
+                                    diverging: [
+                                        [0, "#8e0152"],
+                                        [0.1, "#c51b7d"],
+                                        [0.2, "#de77ae"],
+                                        [0.3, "#f1b6da"],
+                                        [0.4, "#fde0ef"],
+                                        [0.5, "#f7f7f7"],
+                                        [0.6, "#e6f5d0"],
+                                        [0.7, "#b8e186"],
+                                        [0.8, "#7fbc41"],
+                                        [0.9, "#4d9221"],
+                                        [1, "#276419"],
+                                    ],
+                                },
+                                xaxis: {
+                                    gridcolor: "white",
+                                    linecolor: "white",
+                                    ticks: "",
+                                    title: { standoff: 15 },
+                                    zerolinecolor: "white",
+                                    automargin: true,
+                                    zerolinewidth: 2,
+                                },
+                                yaxis: {
+                                    gridcolor: "white",
+                                    linecolor: "white",
+                                    ticks: "",
+                                    title: { standoff: 15 },
+                                    zerolinecolor: "white",
+                                    automargin: true,
+                                    zerolinewidth: 2,
+                                },
+                                scene: {
+                                    xaxis: {
+                                        backgroundcolor: "#E5ECF6",
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        showbackground: true,
+                                        ticks: "",
+                                        zerolinecolor: "white",
+                                        gridwidth: 2,
+                                    },
+                                    yaxis: {
+                                        backgroundcolor: "#E5ECF6",
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        showbackground: true,
+                                        ticks: "",
+                                        zerolinecolor: "white",
+                                        gridwidth: 2,
+                                    },
+                                    zaxis: {
+                                        backgroundcolor: "#E5ECF6",
+                                        gridcolor: "white",
+                                        linecolor: "white",
+                                        showbackground: true,
+                                        ticks: "",
+                                        zerolinecolor: "white",
+                                        gridwidth: 2,
+                                    },
+                                },
+                                shapedefaults: { line: { color: "#2a3f5f" } },
+                                annotationdefaults: {
+                                    arrowcolor: "#2a3f5f",
+                                    arrowhead: 0,
+                                    arrowwidth: 1,
+                                },
+                                geo: {
+                                    bgcolor: "white",
+                                    landcolor: "#E5ECF6",
+                                    subunitcolor: "white",
+                                    showland: true,
+                                    showlakes: true,
+                                    lakecolor: "white",
+                                },
+                                title: { x: 0.05 },
+                                mapbox: { style: "light" },
+                            },
+                        },
+                        geo: {
+                            domain: { x: [0.0, 1.0], y: [0.0, 1.0] },
+                            projection: { type: "natural earth" },
+                            center: {},
+                            showcountries: true,
+                            countrycolor: "#ffd000",
+                            showcoastlines: true,
+                            coastlinecolor: "#ffd000",
+                            showocean: true,
+                            oceancolor: "#710373",
+                            showland: true,
+                            landcolor: "white",
+                            showframe: false,
+                            framecolor: "#333333",
+                            bgcolor: "#710373",
+                        },
+                        coloraxis: {
+                            colorbar: { title: { text: "coverage" } },
+                            colorscale: [
+                                [0.0, "#0d0887"],
+                                [0.1111111111111111, "#46039f"],
+                                [0.2222222222222222, "#7201a8"],
+                                [0.3333333333333333, "#9c179e"],
+                                [0.4444444444444444, "#bd3786"],
+                                [0.5555555555555556, "#d8576b"],
+                                [0.6666666666666666, "#ed7953"],
+                                [0.7777777777777778, "#fb9f3a"],
+                                [0.8888888888888888, "#fdca26"],
+                                [1.0, "#f0f921"],
+                            ],
+                            cmin: 0,
+                            cmax: 8917.7,
+                        },
+                        legend: { tracegroupgap: 0 },
+                        margin: { t: 50, r: 0, l: 0, b: 0 },
+                        font: { color: "#ffd000" },
+                        title: { font: { color: "#ffd000" } },
+                        paper_bgcolor: "#710373",
+                        plot_bgcolor: "#710373",
+                        hoverlabel: { font: { color: "#ffd000" } },
+                    },
+                    { displayModeBar: false, displaylogo: false, responsive: true }
+                );
+            }
+        </script>
+    </div>
+
+    <footer>
+        <p>please excuse any bugs ^^</p>
+    </footer>
+</body>
+
+</html>
