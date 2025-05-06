@@ -134,7 +134,7 @@
         <p>
             Feminist theory has been calling for a critically situated perspective
             on knowledge since Donna Haraway. Wikipedia has also claimed to be “the
-            sum of all knowledge”, a apparently objective point of view.
+            sum of all knowledge”, an apparently objective point of view.
         </p>
         <p>
             This project analyses this tension: How is feminist knowledge
@@ -161,6 +161,85 @@
             </ol>
         </div>
     </div>
+
+    <p class="ssa-subheader">
+        <strong>data</strong>
+    </p>
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                The starting point of the project is a dataset I created from about eight thousand Wikipedia articles
+                from the Wikipedia category "Feminism" and its subcategories. For each topic, I automatically retrieved
+                all existing articles in the 30 most popular language versions. The basis for this task was the
+                MediaWiki API.
+            </p>
+            <p>
+                This resulted in standardized metadata for each article in all languages:
+            </p>
+        </div>
+    </div>
+
+    <div class="ssa-container">
+        <div class="ssa-block-lit">
+            <ul>
+                <li>
+                    <a>Length in bytes</a>
+                </li>
+                <li>
+                    <a>Number of internal links</a>
+                </li>
+                <li>
+                    <a>Number of edits</a>
+                </li>
+                <li>
+                    <a>Date of the first edit</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>quantitative analysis</strong>
+    </p>
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                I used Python, including tools like pandas, scipy, and numpy, to analyze the following metrics:
+            </p>
+        </div>
+    </div>
+
+    <div class="ssa-container">
+        <div class="ssa-block-lit">
+            <ul>
+                <li>
+                    <a>Coverage of articles per language</a>
+                </li>
+                <li>
+                    <a>Median byte count per language</a>
+                </li>
+                <li>
+                    <a>Median number of edits per language</a>
+                </li>
+                <li>
+                    <a>History of article creation in years per language</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                For visualization I used libraries like matplotlib and plotly.
+            </p>
+        </div>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>Article coverage mapped on world map</strong>
+    </p>
 
     <div class="wiki-map">
         <script type="text/javascript">
@@ -872,6 +951,13 @@
             }
         </script>
     </div>
+
+    <p class="ssa-subheader">
+        <strong>History of article creation in years per language</strong>
+    </p>
+
+
+    <img src="assets/ridge_plot.png" class="berlin_map_img">
 
     <footer>
         <p>please excuse any bugs ^^</p>
