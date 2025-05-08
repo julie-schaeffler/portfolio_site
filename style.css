@@ -479,10 +479,19 @@ footer {
   #ascii_photo {
     position: absolute;
     top: 40vh;
-    left: 51.5%;
+    left: 50.3%;
     line-height: 110%;
     transform: translate(-50%, -50%);
     font-size: 5px;
+  }
+
+  .ascii_photo_rgb {
+    position: absolute;
+    top: 40vh;
+    line-height: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5px !important;
   }
 
 
@@ -657,6 +666,20 @@ footer {
     flex: 0 0 auto;
   }
 
+  .plotly-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-top: 5vh;
+  }
+
+
+  .plotly-plot {
+    width: 35vw !important;
+  }
+
   .alg-img {
     width: 20vw;
     height: auto;
@@ -749,4 +772,48 @@ footer {
   padding-right: 15vw;    
   padding-left: 11vw;
   padding-bottom: 6vh;
+}
+
+
+
+.slider-container {
+  left: 50%;
+  transform: translate(0%);
+  width: 70vw;
+  max-width: 100%;
+  user-select: none;
+}
+
+.slider-base {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider-overlay img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #000000;
+  cursor: ew-resize;
+  z-index: 2;
 }

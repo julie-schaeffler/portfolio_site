@@ -143,22 +143,18 @@
     </div>
 
     <p class="ssa-subheader">
-        <strong>research questions</strong>
+        <strong>research question</strong>
     </p>
 
     <div class="ssa-container">
         <div class="ssa-block-lit">
-            <ol>
+            <ul>
                 <li>
                     <a>What are the quantitative differences between language versions
                         of feminist articles on Wikipedia, and are there epistemic
                         patterns that can be identified from them?</a>
                 </li>
-                <li>
-                    <a>What qualitative differences can be seen in selected Wikipedia
-                        articles between language versions in a feminist context?</a>
-                </li>
-            </ol>
+            </ul>
         </div>
     </div>
 
@@ -173,6 +169,9 @@
                 from the Wikipedia category "Feminism" and its subcategories. For each topic, I automatically retrieved
                 all existing articles in the 30 most popular language versions. The basis for this task was the
                 MediaWiki API.
+            </p>
+            <p>
+                For comparison I also created an dataset, similar in size, but with random Wikipedia articles.
             </p>
             <p>
                 This resulted in standardized metadata for each article in all languages:
@@ -218,7 +217,10 @@
                     <a>Coverage of articles per language</a>
                 </li>
                 <li>
-                    <a>Median byte count per language</a>
+                    <a>Median bytecount per language</a>
+                </li>
+                <li>
+                    <a>Median linkcount in an article per language</a>
                 </li>
                 <li>
                     <a>Median number of edits per language</a>
@@ -238,7 +240,7 @@
     </div>
 
     <p class="ssa-subheader">
-        <strong>Article coverage mapped on world map</strong>
+        <strong>feminism article coverage mapped on world map</strong>
     </p>
 
     <div class="wiki-map">
@@ -940,11 +942,11 @@
                         },
                         legend: { tracegroupgap: 0 },
                         margin: { t: 50, r: 0, l: 0, b: 0 },
-                        font: { color: "#ffd000" },
+                        font: { color: "#ffd000", family: "Courier New" },
                         title: { font: { color: "#ffd000" } },
                         paper_bgcolor: "#710373",
                         plot_bgcolor: "#710373",
-                        hoverlabel: { font: { color: "#ffd000" } },
+                        hoverlabel: { font: { color: "#ffd000", family: "Courier New" } },
                     },
                     { displayModeBar: false, displaylogo: false, responsive: true }
                 );
@@ -952,12 +954,3169 @@
         </script>
     </div>
 
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                The map shows that, as expected, English-speaking countries have by far the highest coverage of articles
+                in their own language. What stands out, is that after English, French and Spanish, Arabic has the
+                highest coverage of articles. However, in terms of the number of articles in Wikipedia as a whole,
+                Arabic is only in 17th place. It is also surprising that German, for example, is only in 5th place for
+                feminist articles, although it is in 2nd place in Wikipedia as a whole if you exclude Cebuanu, which
+                consists largely of bot-generated articles.
+            </p>
+        </div>
+    </div>
+
     <p class="ssa-subheader">
-        <strong>History of article creation in years per language</strong>
+        <strong>article length</strong>
     </p>
 
+    <div class="plotly-container">
+        <div class="plotly-block">
+            <div class="plotly-plot">
+                <script type="text/javascript">
+                    window.PlotlyConfig = { MathJaxConfig: "local" };
+                </script>
+                <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+                <div id="cc5f9ee0-4632-47a8-8468-d3c033ae05b4" class="plotly-graph-div"
+                    style="height: 100%; width: 100%"></div>
+                <script type="text/javascript">
+                    window.PLOTLYENV = window.PLOTLYENV || {};
+                    if (document.getElementById("cc5f9ee0-4632-47a8-8468-d3c033ae05b4")) {
+                        Plotly.newPlot(
+                            "cc5f9ee0-4632-47a8-8468-d3c033ae05b4",
+                            [
+                                {
+                                    hovertemplate:
+                                        "Language=%{x}\u003cbr\u003eMedian Bytecount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e",
+                                    legendgroup: "",
+                                    marker: { color: "#ffd000", pattern: { shape: "" } },
+                                    name: "",
+                                    orientation: "v",
+                                    showlegend: false,
+                                    textposition: "auto",
+                                    x: [
+                                        "Ukrainian",
+                                        "Serbian",
+                                        "Russian",
+                                        "Japanese",
+                                        "Italian",
+                                        "Spanish",
+                                        "French",
+                                        "German",
+                                        "Hungarian",
+                                        "Arabic",
+                                        "English",
+                                        "Tatar",
+                                        "Portuguese",
+                                        "Czech",
+                                        "Catalan",
+                                        "Persian",
+                                        "Vietnamese",
+                                        "Dutch",
+                                        "Chechen",
+                                        "Chinese",
+                                        "Polish",
+                                        "Turkish",
+                                        "Norwegian",
+                                        "Finnish",
+                                        "Korean",
+                                        "Indonesian",
+                                        "Swedish",
+                                        "EgyptianArabic",
+                                        "Cebuano",
+                                        "Waray-Waray",
+                                    ],
+                                    xaxis: "x",
+                                    y: {
+                                        dtype: "f8",
+                                        bdata:
+                                            "AAAAAIBMwUAAAAAAAL+7QAAAAAAAq7pAAAAAAAArt0AAAAAAABi3QAAAAAAAqLNAAAAAAAA8s0AAAAAAAPOyQAAAAAAAL7JAAAAAAIAYskAAAAAAAH6xQAAAAAAAorBAAAAAAABLr0AAAAAAAPCuQAAAAAAAqq1AAAAAAACErEAAAAAAACqsQAAAAAAAdqlAAAAAAABLp0AAAAAAAC+nQAAAAAAABKVAAAAAAACAo0AAAAAAADWjQAAAAAAAEKJAAAAAAAAwn0AAAAAAACqeQAAAAAAAfJZAAAAAAAAKkkAAAAAAAAiGQAAAAAAAQGJA",
+                                    },
+                                    yaxis: "y",
+                                    type: "bar",
+                                },
+                            ],
+                            {
+                                template: {
+                                    data: {
+                                        histogram2dcontour: [
+                                            {
+                                                type: "histogram2dcontour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        choropleth: [
+                                            {
+                                                type: "choropleth",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        histogram2d: [
+                                            {
+                                                type: "histogram2d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        heatmap: [
+                                            {
+                                                type: "heatmap",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        contourcarpet: [
+                                            {
+                                                type: "contourcarpet",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        contour: [
+                                            {
+                                                type: "contour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        surface: [
+                                            {
+                                                type: "surface",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        mesh3d: [
+                                            {
+                                                type: "mesh3d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        scatter: [
+                                            {
+                                                fillpattern: {
+                                                    fillmode: "overlay",
+                                                    size: 10,
+                                                    solidity: 0.2,
+                                                },
+                                                type: "scatter",
+                                            },
+                                        ],
+                                        parcoords: [
+                                            {
+                                                type: "parcoords",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolargl: [
+                                            {
+                                                type: "scatterpolargl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        bar: [
+                                            {
+                                                error_x: { color: "#2a3f5f" },
+                                                error_y: { color: "#2a3f5f" },
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "bar",
+                                            },
+                                        ],
+                                        scattergeo: [
+                                            {
+                                                type: "scattergeo",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolar: [
+                                            {
+                                                type: "scatterpolar",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        histogram: [
+                                            {
+                                                marker: {
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "histogram",
+                                            },
+                                        ],
+                                        scattergl: [
+                                            {
+                                                type: "scattergl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatter3d: [
+                                            {
+                                                type: "scatter3d",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermap: [
+                                            {
+                                                type: "scattermap",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermapbox: [
+                                            {
+                                                type: "scattermapbox",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterternary: [
+                                            {
+                                                type: "scatterternary",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattercarpet: [
+                                            {
+                                                type: "scattercarpet",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        carpet: [
+                                            {
+                                                aaxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                baxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                type: "carpet",
+                                            },
+                                        ],
+                                        table: [
+                                            {
+                                                cells: {
+                                                    fill: { color: "#EBF0F8" },
+                                                    line: { color: "white" },
+                                                },
+                                                header: {
+                                                    fill: { color: "#C8D4E3" },
+                                                    line: { color: "white" },
+                                                },
+                                                type: "table",
+                                            },
+                                        ],
+                                        barpolar: [
+                                            {
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "barpolar",
+                                            },
+                                        ],
+                                        pie: [{ automargin: true, type: "pie" }],
+                                    },
+                                    layout: {
+                                        autotypenumbers: "strict",
+                                        colorway: [
+                                            "#636efa",
+                                            "#EF553B",
+                                            "#00cc96",
+                                            "#ab63fa",
+                                            "#FFA15A",
+                                            "#19d3f3",
+                                            "#FF6692",
+                                            "#B6E880",
+                                            "#FF97FF",
+                                            "#FECB52",
+                                        ],
+                                        font: { color: "#2a3f5f" },
+                                        hovermode: "closest",
+                                        hoverlabel: { align: "left" },
+                                        paper_bgcolor: "white",
+                                        plot_bgcolor: "#E5ECF6",
+                                        polar: {
+                                            bgcolor: "#E5ECF6",
+                                            angularaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            radialaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        ternary: {
+                                            bgcolor: "#E5ECF6",
+                                            aaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            baxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            caxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        colorscale: {
+                                            sequential: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            sequentialminus: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            diverging: [
+                                                [0, "#8e0152"],
+                                                [0.1, "#c51b7d"],
+                                                [0.2, "#de77ae"],
+                                                [0.3, "#f1b6da"],
+                                                [0.4, "#fde0ef"],
+                                                [0.5, "#f7f7f7"],
+                                                [0.6, "#e6f5d0"],
+                                                [0.7, "#b8e186"],
+                                                [0.8, "#7fbc41"],
+                                                [0.9, "#4d9221"],
+                                                [1, "#276419"],
+                                            ],
+                                        },
+                                        xaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        yaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        scene: {
+                                            xaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            yaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            zaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                        },
+                                        shapedefaults: { line: { color: "#2a3f5f" } },
+                                        annotationdefaults: {
+                                            arrowcolor: "#2a3f5f",
+                                            arrowhead: 0,
+                                            arrowwidth: 1,
+                                        },
+                                        geo: {
+                                            bgcolor: "white",
+                                            landcolor: "#E5ECF6",
+                                            subunitcolor: "white",
+                                            showland: true,
+                                            showlakes: true,
+                                            lakecolor: "white",
+                                        },
+                                        title: { x: 0.05 },
+                                        mapbox: { style: "light" },
+                                    },
+                                },
+                                xaxis: {
+                                    anchor: "y",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Language" },
+                                    tickangle: -45,
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                yaxis: {
+                                    anchor: "x",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Median Bytecount" },
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                legend: { tracegroupgap: 0 },
+                                margin: { t: 60, l: 40, r: 40, b: 100 },
+                                barmode: "relative",
+                                title: {
+                                    text: "Median Bytecount per Language (feminsim dataset)",
+                                    font: { color: "#ffd000" },
+                                },
+                                font: { color: "#ffd000", family: "Courier New" },
+                                paper_bgcolor: "#710373",
+                                plot_bgcolor: "#710373",
+                            },
+                            { displayModeBar: false, displaylogo: false, responsive: true }
+                        );
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="plotly-block">
+            <div class="plotly-plot">
+                <script type="text/javascript">
+                    window.PlotlyConfig = { MathJaxConfig: "local" };
+                </script>
+                <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+                <div id="74dc99bd-f604-4c3f-891e-25880ea45595" class="plotly-graph-div"
+                    style="height: 100%; width: 100%">
+                </div>
+                <script type="text/javascript">
+                    window.PLOTLYENV = window.PLOTLYENV || {};
+                    if (document.getElementById("74dc99bd-f604-4c3f-891e-25880ea45595")) {
+                        Plotly.newPlot(
+                            "74dc99bd-f604-4c3f-891e-25880ea45595",
+                            [
+                                {
+                                    hovertemplate:
+                                        "Language=%{x}\u003cbr\u003eMedian Bytecount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e",
+                                    legendgroup: "",
+                                    marker: { color: "#ffd000", pattern: { shape: "" } },
+                                    name: "",
+                                    orientation: "v",
+                                    showlegend: false,
+                                    textposition: "auto",
+                                    x: [
+                                        "Russian",
+                                        "Japanese",
+                                        "German",
+                                        "Ukrainian",
+                                        "Czech",
+                                        "French",
+                                        "Spanish",
+                                        "Catalan",
+                                        "Serbian",
+                                        "English",
+                                        "Hungarian",
+                                        "Italian",
+                                        "Finnish",
+                                        "EgyptianArabic",
+                                        "Norwegian",
+                                        "Korean",
+                                        "Indonesian",
+                                        "Chinese",
+                                        "Polish",
+                                        "Chechen",
+                                        "Portuguese",
+                                        "Tatar",
+                                        "Turkish",
+                                        "Arabic",
+                                        "Dutch",
+                                        "Persian",
+                                        "Swedish",
+                                        "Vietnamese",
+                                        "Cebuano",
+                                        "Waray-Waray",
+                                    ],
+                                    xaxis: "x",
+                                    y: {
+                                        dtype: "f8",
+                                        bdata:
+                                            "AAAAAACeqEAAAAAAABqmQAAAAAAAaqFAAAAAAAAgoEAAAAAAABCaQAAAAAAAVJlAAAAAAAC6lkAAAAAAAOiVQAAAAAAAIJVAAAAAAADQlEAAAAAAAAyUQAAAAAAABJRAAAAAAACukUAAAAAAAICOQAAAAAAAaIxAAAAAAABAjEAAAAAAANCKQAAAAAAAkIpAAAAAAADgiEAAAAAAAHCIQAAAAAAAiIdAAAAAAABMh0AAAAAAAFCGQAAAAAAADIZAAAAAAAAAhEAAAAAAAGiCQAAAAAAAiH9AAAAAAADgfUAAAAAAAGB4QAAAAAAAMG5A",
+                                    },
+                                    yaxis: "y",
+                                    type: "bar",
+                                },
+                            ],
+                            {
+                                template: {
+                                    data: {
+                                        histogram2dcontour: [
+                                            {
+                                                type: "histogram2dcontour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        choropleth: [
+                                            {
+                                                type: "choropleth",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        histogram2d: [
+                                            {
+                                                type: "histogram2d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        heatmap: [
+                                            {
+                                                type: "heatmap",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        contourcarpet: [
+                                            {
+                                                type: "contourcarpet",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        contour: [
+                                            {
+                                                type: "contour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        surface: [
+                                            {
+                                                type: "surface",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        mesh3d: [
+                                            {
+                                                type: "mesh3d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        scatter: [
+                                            {
+                                                fillpattern: {
+                                                    fillmode: "overlay",
+                                                    size: 10,
+                                                    solidity: 0.2,
+                                                },
+                                                type: "scatter",
+                                            },
+                                        ],
+                                        parcoords: [
+                                            {
+                                                type: "parcoords",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolargl: [
+                                            {
+                                                type: "scatterpolargl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        bar: [
+                                            {
+                                                error_x: { color: "#2a3f5f" },
+                                                error_y: { color: "#2a3f5f" },
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "bar",
+                                            },
+                                        ],
+                                        scattergeo: [
+                                            {
+                                                type: "scattergeo",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolar: [
+                                            {
+                                                type: "scatterpolar",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        histogram: [
+                                            {
+                                                marker: {
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "histogram",
+                                            },
+                                        ],
+                                        scattergl: [
+                                            {
+                                                type: "scattergl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatter3d: [
+                                            {
+                                                type: "scatter3d",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermap: [
+                                            {
+                                                type: "scattermap",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermapbox: [
+                                            {
+                                                type: "scattermapbox",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterternary: [
+                                            {
+                                                type: "scatterternary",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattercarpet: [
+                                            {
+                                                type: "scattercarpet",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        carpet: [
+                                            {
+                                                aaxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                baxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                type: "carpet",
+                                            },
+                                        ],
+                                        table: [
+                                            {
+                                                cells: {
+                                                    fill: { color: "#EBF0F8" },
+                                                    line: { color: "white" },
+                                                },
+                                                header: {
+                                                    fill: { color: "#C8D4E3" },
+                                                    line: { color: "white" },
+                                                },
+                                                type: "table",
+                                            },
+                                        ],
+                                        barpolar: [
+                                            {
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "barpolar",
+                                            },
+                                        ],
+                                        pie: [{ automargin: true, type: "pie" }],
+                                    },
+                                    layout: {
+                                        autotypenumbers: "strict",
+                                        colorway: [
+                                            "#636efa",
+                                            "#EF553B",
+                                            "#00cc96",
+                                            "#ab63fa",
+                                            "#FFA15A",
+                                            "#19d3f3",
+                                            "#FF6692",
+                                            "#B6E880",
+                                            "#FF97FF",
+                                            "#FECB52",
+                                        ],
+                                        font: { color: "#2a3f5f" },
+                                        hovermode: "closest",
+                                        hoverlabel: { align: "left" },
+                                        paper_bgcolor: "white",
+                                        plot_bgcolor: "#E5ECF6",
+                                        polar: {
+                                            bgcolor: "#E5ECF6",
+                                            angularaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            radialaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        ternary: {
+                                            bgcolor: "#E5ECF6",
+                                            aaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            baxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            caxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        colorscale: {
+                                            sequential: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            sequentialminus: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            diverging: [
+                                                [0, "#8e0152"],
+                                                [0.1, "#c51b7d"],
+                                                [0.2, "#de77ae"],
+                                                [0.3, "#f1b6da"],
+                                                [0.4, "#fde0ef"],
+                                                [0.5, "#f7f7f7"],
+                                                [0.6, "#e6f5d0"],
+                                                [0.7, "#b8e186"],
+                                                [0.8, "#7fbc41"],
+                                                [0.9, "#4d9221"],
+                                                [1, "#276419"],
+                                            ],
+                                        },
+                                        xaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        yaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        scene: {
+                                            xaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            yaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            zaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                        },
+                                        shapedefaults: { line: { color: "#2a3f5f" } },
+                                        annotationdefaults: {
+                                            arrowcolor: "#2a3f5f",
+                                            arrowhead: 0,
+                                            arrowwidth: 1,
+                                        },
+                                        geo: {
+                                            bgcolor: "white",
+                                            landcolor: "#E5ECF6",
+                                            subunitcolor: "white",
+                                            showland: true,
+                                            showlakes: true,
+                                            lakecolor: "white",
+                                        },
+                                        title: { x: 0.05 },
+                                        mapbox: { style: "light" },
+                                    },
+                                },
+                                xaxis: {
+                                    anchor: "y",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Language" },
+                                    tickangle: -45,
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                yaxis: {
+                                    anchor: "x",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Median Bytecount" },
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                legend: { tracegroupgap: 0 },
+                                margin: { t: 60, l: 40, r: 40, b: 100 },
+                                barmode: "relative",
+                                title: {
+                                    text: "Median Bytecount per Language (random dataset)",
+                                    font: { color: "#ffd000" },
+                                },
+                                font: { color: "#ffd000", family: "Courier New" },
+                                paper_bgcolor: "#710373",
+                                plot_bgcolor: "#710373",
+                            },
+                            { displayModeBar: false, displaylogo: false, responsive: true }
+                        );
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
 
-    <img src="assets/ridge_plot.png" class="berlin_map_img">
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                You can see that the length of articles differs significantly in different languages. This is mainly due
+                to linguistic characteristics, such as grammatical complexity. It is therefore quite difficult to
+                identify differences in content between the languages. Nevertheless, it is noticeable that the articles
+                from the feminist dataset are much longer than the articles from the random dataset.
+            </p>
+        </div>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>number of internal links</strong>
+    </p>
+
+    <div class="plotly-container">
+        <div class="plotly-block">
+            <div class="plotly-plot">
+                <script type="text/javascript">
+                    window.PlotlyConfig = { MathJaxConfig: "local" };
+                </script>
+                <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+                <div id="25a2b1d4-6c74-4fcd-9148-67a4b0925853" class="plotly-graph-div"
+                    style="height: 100%; width: 100%"></div>
+                <script type="text/javascript">
+                    window.PLOTLYENV = window.PLOTLYENV || {};
+                    if (document.getElementById("25a2b1d4-6c74-4fcd-9148-67a4b0925853")) {
+                        Plotly.newPlot(
+                            "25a2b1d4-6c74-4fcd-9148-67a4b0925853",
+                            [
+                                {
+                                    hovertemplate:
+                                        "Language=%{x}\u003cbr\u003eMedian Linkcount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e",
+                                    legendgroup: "",
+                                    marker: { color: "#c65b70", pattern: { shape: "" } },
+                                    name: "",
+                                    orientation: "v",
+                                    showlegend: false,
+                                    textposition: "auto",
+                                    x: [
+                                        "Ukrainian",
+                                        "Chinese",
+                                        "Japanese",
+                                        "Italian",
+                                        "Hungarian",
+                                        "Czech",
+                                        "Serbian",
+                                        "Russian",
+                                        "Turkish",
+                                        "Persian",
+                                        "Korean",
+                                        "Portuguese",
+                                        "French",
+                                        "Polish",
+                                        "English",
+                                        "Spanish",
+                                        "German",
+                                        "Catalan",
+                                        "Dutch",
+                                        "Finnish",
+                                        "Arabic",
+                                        "Norwegian",
+                                        "Indonesian",
+                                        "Tatar",
+                                        "Swedish",
+                                        "Vietnamese",
+                                        "Chechen",
+                                        "EgyptianArabic",
+                                        "Cebuano",
+                                        "Waray-Waray",
+                                    ],
+                                    xaxis: "x",
+                                    y: {
+                                        dtype: "f8",
+                                        bdata:
+                                            "AAAAAACAWkAAAAAAAGBXQAAAAAAAAFdAAAAAAABAUUAAAAAAAEBQQAAAAAAAIFBAAAAAAAAAT0AAAAAAAABOQAAAAAAAAE1AAAAAAACATEAAAAAAAMBLQAAAAAAAAEtAAAAAAAAASkAAAAAAAEBFQAAAAAAAgERAAAAAAACAQ0AAAAAAAABDQAAAAAAAAENAAAAAAAAAQ0AAAAAAAABCQAAAAAAAgEFAAAAAAACAQUAAAAAAAIBAQAAAAAAAgD9AAAAAAAAAOkAAAAAAAAA6QAAAAAAAADZAAAAAAAAAMkAAAAAAAAAmQAAAAAAAAABA",
+                                    },
+                                    yaxis: "y",
+                                    type: "bar",
+                                },
+                            ],
+                            {
+                                template: {
+                                    data: {
+                                        histogram2dcontour: [
+                                            {
+                                                type: "histogram2dcontour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        choropleth: [
+                                            {
+                                                type: "choropleth",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        histogram2d: [
+                                            {
+                                                type: "histogram2d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        heatmap: [
+                                            {
+                                                type: "heatmap",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        contourcarpet: [
+                                            {
+                                                type: "contourcarpet",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        contour: [
+                                            {
+                                                type: "contour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        surface: [
+                                            {
+                                                type: "surface",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        mesh3d: [
+                                            {
+                                                type: "mesh3d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        scatter: [
+                                            {
+                                                fillpattern: {
+                                                    fillmode: "overlay",
+                                                    size: 10,
+                                                    solidity: 0.2,
+                                                },
+                                                type: "scatter",
+                                            },
+                                        ],
+                                        parcoords: [
+                                            {
+                                                type: "parcoords",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolargl: [
+                                            {
+                                                type: "scatterpolargl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        bar: [
+                                            {
+                                                error_x: { color: "#2a3f5f" },
+                                                error_y: { color: "#2a3f5f" },
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "bar",
+                                            },
+                                        ],
+                                        scattergeo: [
+                                            {
+                                                type: "scattergeo",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolar: [
+                                            {
+                                                type: "scatterpolar",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        histogram: [
+                                            {
+                                                marker: {
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "histogram",
+                                            },
+                                        ],
+                                        scattergl: [
+                                            {
+                                                type: "scattergl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatter3d: [
+                                            {
+                                                type: "scatter3d",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermap: [
+                                            {
+                                                type: "scattermap",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermapbox: [
+                                            {
+                                                type: "scattermapbox",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterternary: [
+                                            {
+                                                type: "scatterternary",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattercarpet: [
+                                            {
+                                                type: "scattercarpet",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        carpet: [
+                                            {
+                                                aaxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                baxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                type: "carpet",
+                                            },
+                                        ],
+                                        table: [
+                                            {
+                                                cells: {
+                                                    fill: { color: "#EBF0F8" },
+                                                    line: { color: "white" },
+                                                },
+                                                header: {
+                                                    fill: { color: "#C8D4E3" },
+                                                    line: { color: "white" },
+                                                },
+                                                type: "table",
+                                            },
+                                        ],
+                                        barpolar: [
+                                            {
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "barpolar",
+                                            },
+                                        ],
+                                        pie: [{ automargin: true, type: "pie" }],
+                                    },
+                                    layout: {
+                                        autotypenumbers: "strict",
+                                        colorway: [
+                                            "#636efa",
+                                            "#EF553B",
+                                            "#00cc96",
+                                            "#ab63fa",
+                                            "#FFA15A",
+                                            "#19d3f3",
+                                            "#FF6692",
+                                            "#B6E880",
+                                            "#FF97FF",
+                                            "#FECB52",
+                                        ],
+                                        font: { color: "#2a3f5f" },
+                                        hovermode: "closest",
+                                        hoverlabel: { align: "left" },
+                                        paper_bgcolor: "white",
+                                        plot_bgcolor: "#E5ECF6",
+                                        polar: {
+                                            bgcolor: "#E5ECF6",
+                                            angularaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            radialaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        ternary: {
+                                            bgcolor: "#E5ECF6",
+                                            aaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            baxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            caxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        colorscale: {
+                                            sequential: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            sequentialminus: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            diverging: [
+                                                [0, "#8e0152"],
+                                                [0.1, "#c51b7d"],
+                                                [0.2, "#de77ae"],
+                                                [0.3, "#f1b6da"],
+                                                [0.4, "#fde0ef"],
+                                                [0.5, "#f7f7f7"],
+                                                [0.6, "#e6f5d0"],
+                                                [0.7, "#b8e186"],
+                                                [0.8, "#7fbc41"],
+                                                [0.9, "#4d9221"],
+                                                [1, "#276419"],
+                                            ],
+                                        },
+                                        xaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        yaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        scene: {
+                                            xaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            yaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            zaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                        },
+                                        shapedefaults: { line: { color: "#2a3f5f" } },
+                                        annotationdefaults: {
+                                            arrowcolor: "#2a3f5f",
+                                            arrowhead: 0,
+                                            arrowwidth: 1,
+                                        },
+                                        geo: {
+                                            bgcolor: "white",
+                                            landcolor: "#E5ECF6",
+                                            subunitcolor: "white",
+                                            showland: true,
+                                            showlakes: true,
+                                            lakecolor: "white",
+                                        },
+                                        title: { x: 0.05 },
+                                        mapbox: { style: "light" },
+                                    },
+                                },
+                                xaxis: {
+                                    anchor: "y",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Language" },
+                                    tickangle: -45,
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                yaxis: {
+                                    anchor: "x",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Median Linkcount" },
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                legend: { tracegroupgap: 0 },
+                                margin: { t: 60, l: 40, r: 40, b: 100 },
+                                barmode: "relative",
+                                title: {
+                                    text: "Median Linkcount per Language (feminsim dataset)",
+                                    font: { color: "#ffd000" },
+                                },
+                                font: { color: "#ffd000", family: "Courier New" },
+                                paper_bgcolor: "#710373",
+                                plot_bgcolor: "#710373",
+                            },
+                            { displayModeBar: false, displaylogo: false, responsive: true }
+                        );
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="plotly-block">
+            <div class="plotly-plot">
+                <script type="text/javascript">
+                    window.PlotlyConfig = { MathJaxConfig: "local" };
+                </script>
+                <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+                <div id="f3aed354-be3d-4d0e-be8e-bdfa3877b9e2" class="plotly-graph-div"
+                    style="height: 100%; width: 100%"></div>
+                <script type="text/javascript">
+                    window.PLOTLYENV = window.PLOTLYENV || {};
+                    if (document.getElementById("f3aed354-be3d-4d0e-be8e-bdfa3877b9e2")) {
+                        Plotly.newPlot(
+                            "f3aed354-be3d-4d0e-be8e-bdfa3877b9e2",
+                            [
+                                {
+                                    hovertemplate:
+                                        "Language=%{x}\u003cbr\u003eMedian Linkcount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e",
+                                    legendgroup: "",
+                                    marker: { color: "#c65b70", pattern: { shape: "" } },
+                                    name: "",
+                                    orientation: "v",
+                                    showlegend: false,
+                                    textposition: "auto",
+                                    x: [
+                                        "Japanese",
+                                        "Hungarian",
+                                        "Ukrainian",
+                                        "Chinese",
+                                        "Russian",
+                                        "Italian",
+                                        "French",
+                                        "Czech",
+                                        "Serbian",
+                                        "Turkish",
+                                        "English",
+                                        "Polish",
+                                        "Portuguese",
+                                        "German",
+                                        "Catalan",
+                                        "Korean",
+                                        "Chechen",
+                                        "Indonesian",
+                                        "Spanish",
+                                        "Arabic",
+                                        "Norwegian",
+                                        "Finnish",
+                                        "Swedish",
+                                        "Vietnamese",
+                                        "Persian",
+                                        "Dutch",
+                                        "Waray-Waray",
+                                        "Tatar",
+                                        "Cebuano",
+                                        "EgyptianArabic",
+                                    ],
+                                    xaxis: "x",
+                                    y: {
+                                        dtype: "f8",
+                                        bdata:
+                                            "AAAAAADAUkAAAAAAAMBQQAAAAAAAgE9AAAAAAACAT0AAAAAAAMBOQAAAAAAAgE5AAAAAAAAATkAAAAAAAABNQAAAAAAAgEpAAAAAAACAR0AAAAAAAABHQAAAAAAAgEZAAAAAAAAARkAAAAAAAABFQAAAAAAAAEVAAAAAAAAAQ0AAAAAAAABDQAAAAAAAgEJAAAAAAACAQUAAAAAAAIBBQAAAAAAAAEFAAAAAAAAAPkAAAAAAAAA8QAAAAAAAADxAAAAAAAAAOkAAAAAAAAA5QAAAAAAAADRAAAAAAAAAMkAAAAAAAAAxQAAAAAAAACxA",
+                                    },
+                                    yaxis: "y",
+                                    type: "bar",
+                                },
+                            ],
+                            {
+                                template: {
+                                    data: {
+                                        histogram2dcontour: [
+                                            {
+                                                type: "histogram2dcontour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        choropleth: [
+                                            {
+                                                type: "choropleth",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        histogram2d: [
+                                            {
+                                                type: "histogram2d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        heatmap: [
+                                            {
+                                                type: "heatmap",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        contourcarpet: [
+                                            {
+                                                type: "contourcarpet",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        contour: [
+                                            {
+                                                type: "contour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        surface: [
+                                            {
+                                                type: "surface",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        mesh3d: [
+                                            {
+                                                type: "mesh3d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        scatter: [
+                                            {
+                                                fillpattern: {
+                                                    fillmode: "overlay",
+                                                    size: 10,
+                                                    solidity: 0.2,
+                                                },
+                                                type: "scatter",
+                                            },
+                                        ],
+                                        parcoords: [
+                                            {
+                                                type: "parcoords",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolargl: [
+                                            {
+                                                type: "scatterpolargl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        bar: [
+                                            {
+                                                error_x: { color: "#2a3f5f" },
+                                                error_y: { color: "#2a3f5f" },
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "bar",
+                                            },
+                                        ],
+                                        scattergeo: [
+                                            {
+                                                type: "scattergeo",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolar: [
+                                            {
+                                                type: "scatterpolar",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        histogram: [
+                                            {
+                                                marker: {
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "histogram",
+                                            },
+                                        ],
+                                        scattergl: [
+                                            {
+                                                type: "scattergl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatter3d: [
+                                            {
+                                                type: "scatter3d",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermap: [
+                                            {
+                                                type: "scattermap",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermapbox: [
+                                            {
+                                                type: "scattermapbox",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterternary: [
+                                            {
+                                                type: "scatterternary",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattercarpet: [
+                                            {
+                                                type: "scattercarpet",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        carpet: [
+                                            {
+                                                aaxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                baxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                type: "carpet",
+                                            },
+                                        ],
+                                        table: [
+                                            {
+                                                cells: {
+                                                    fill: { color: "#EBF0F8" },
+                                                    line: { color: "white" },
+                                                },
+                                                header: {
+                                                    fill: { color: "#C8D4E3" },
+                                                    line: { color: "white" },
+                                                },
+                                                type: "table",
+                                            },
+                                        ],
+                                        barpolar: [
+                                            {
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "barpolar",
+                                            },
+                                        ],
+                                        pie: [{ automargin: true, type: "pie" }],
+                                    },
+                                    layout: {
+                                        autotypenumbers: "strict",
+                                        colorway: [
+                                            "#636efa",
+                                            "#EF553B",
+                                            "#00cc96",
+                                            "#ab63fa",
+                                            "#FFA15A",
+                                            "#19d3f3",
+                                            "#FF6692",
+                                            "#B6E880",
+                                            "#FF97FF",
+                                            "#FECB52",
+                                        ],
+                                        font: { color: "#2a3f5f" },
+                                        hovermode: "closest",
+                                        hoverlabel: { align: "left" },
+                                        paper_bgcolor: "white",
+                                        plot_bgcolor: "#E5ECF6",
+                                        polar: {
+                                            bgcolor: "#E5ECF6",
+                                            angularaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            radialaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        ternary: {
+                                            bgcolor: "#E5ECF6",
+                                            aaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            baxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            caxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        colorscale: {
+                                            sequential: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            sequentialminus: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            diverging: [
+                                                [0, "#8e0152"],
+                                                [0.1, "#c51b7d"],
+                                                [0.2, "#de77ae"],
+                                                [0.3, "#f1b6da"],
+                                                [0.4, "#fde0ef"],
+                                                [0.5, "#f7f7f7"],
+                                                [0.6, "#e6f5d0"],
+                                                [0.7, "#b8e186"],
+                                                [0.8, "#7fbc41"],
+                                                [0.9, "#4d9221"],
+                                                [1, "#276419"],
+                                            ],
+                                        },
+                                        xaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        yaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        scene: {
+                                            xaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            yaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            zaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                        },
+                                        shapedefaults: { line: { color: "#2a3f5f" } },
+                                        annotationdefaults: {
+                                            arrowcolor: "#2a3f5f",
+                                            arrowhead: 0,
+                                            arrowwidth: 1,
+                                        },
+                                        geo: {
+                                            bgcolor: "white",
+                                            landcolor: "#E5ECF6",
+                                            subunitcolor: "white",
+                                            showland: true,
+                                            showlakes: true,
+                                            lakecolor: "white",
+                                        },
+                                        title: { x: 0.05 },
+                                        mapbox: { style: "light" },
+                                    },
+                                },
+                                xaxis: {
+                                    anchor: "y",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Language" },
+                                    tickangle: -45,
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                yaxis: {
+                                    anchor: "x",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Median Linkcount" },
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                legend: { tracegroupgap: 0 },
+                                margin: { t: 60, l: 40, r: 40, b: 100 },
+                                barmode: "relative",
+                                title: {
+                                    text: "Median Linkcount per Language (random dataset)",
+                                    font: { color: "#ffd000" },
+                                },
+                                font: { color: "#ffd000", family: "Courier New" },
+                                paper_bgcolor: "#710373",
+                                plot_bgcolor: "#710373",
+                            },
+                            { displayModeBar: false, displaylogo: false, responsive: true }
+                        );
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                The number of links in an article also tells very little, as there are different guidelines for editing,
+                creating and linking articles in each language.
+            </p>
+        </div>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>number of edits</strong>
+    </p>
+
+    <div class="plotly-container">
+        <div class="plotly-block">
+            <div class="plotly-plot">
+                <script type="text/javascript">
+                    window.PlotlyConfig = { MathJaxConfig: "local" };
+                </script>
+                <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+                <div id="d85e1f69-0c38-46bd-84c1-36bf184e05db" class="plotly-graph-div"
+                    style="height: 100%; width: 100%"></div>
+                <script type="text/javascript">
+                    window.PLOTLYENV = window.PLOTLYENV || {};
+                    if (document.getElementById("d85e1f69-0c38-46bd-84c1-36bf184e05db")) {
+                        Plotly.newPlot(
+                            "d85e1f69-0c38-46bd-84c1-36bf184e05db",
+                            [
+                                {
+                                    hovertemplate:
+                                        "Language=%{x}\u003cbr\u003eMedian Editcount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e",
+                                    legendgroup: "",
+                                    marker: { color: "#440a9b", pattern: { shape: "" } },
+                                    name: "",
+                                    orientation: "v",
+                                    showlegend: false,
+                                    textposition: "auto",
+                                    x: [
+                                        "English",
+                                        "German",
+                                        "Italian",
+                                        "Hungarian",
+                                        "French",
+                                        "Japanese",
+                                        "Dutch",
+                                        "Russian",
+                                        "Polish",
+                                        "Catalan",
+                                        "Norwegian",
+                                        "Turkish",
+                                        "Chinese",
+                                        "Spanish",
+                                        "Serbian",
+                                        "Arabic",
+                                        "Korean",
+                                        "Ukrainian",
+                                        "Czech",
+                                        "Finnish",
+                                        "Persian",
+                                        "Portuguese",
+                                        "Chechen",
+                                        "Swedish",
+                                        "Vietnamese",
+                                        "Waray-Waray",
+                                        "Indonesian",
+                                        "Tatar",
+                                        "Cebuano",
+                                        "EgyptianArabic",
+                                    ],
+                                    xaxis: "x",
+                                    y: {
+                                        dtype: "f8",
+                                        bdata:
+                                            "AAAAAACATkAAAAAAAIBKQAAAAAAAgEZAAAAAAACAQ0AAAAAAAABDQAAAAAAAgEBAAAAAAAAAQEAAAAAAAAA+QAAAAAAAgD1AAAAAAAAAPUAAAAAAAAA9QAAAAAAAADxAAAAAAAAAPEAAAAAAAAA7QAAAAAAAADpAAAAAAAAAOUAAAAAAAAA4QAAAAAAAADZAAAAAAAAANUAAAAAAAAAwQAAAAAAAAC5AAAAAAAAALkAAAAAAAAAuQAAAAAAAAC5AAAAAAAAALEAAAAAAAAAkQAAAAAAAACJAAAAAAAAAIEAAAAAAAAAcQAAAAAAAABRA",
+                                    },
+                                    yaxis: "y",
+                                    type: "bar",
+                                },
+                            ],
+                            {
+                                template: {
+                                    data: {
+                                        histogram2dcontour: [
+                                            {
+                                                type: "histogram2dcontour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        choropleth: [
+                                            {
+                                                type: "choropleth",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        histogram2d: [
+                                            {
+                                                type: "histogram2d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        heatmap: [
+                                            {
+                                                type: "heatmap",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        contourcarpet: [
+                                            {
+                                                type: "contourcarpet",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        contour: [
+                                            {
+                                                type: "contour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        surface: [
+                                            {
+                                                type: "surface",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        mesh3d: [
+                                            {
+                                                type: "mesh3d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        scatter: [
+                                            {
+                                                fillpattern: {
+                                                    fillmode: "overlay",
+                                                    size: 10,
+                                                    solidity: 0.2,
+                                                },
+                                                type: "scatter",
+                                            },
+                                        ],
+                                        parcoords: [
+                                            {
+                                                type: "parcoords",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolargl: [
+                                            {
+                                                type: "scatterpolargl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        bar: [
+                                            {
+                                                error_x: { color: "#2a3f5f" },
+                                                error_y: { color: "#2a3f5f" },
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "bar",
+                                            },
+                                        ],
+                                        scattergeo: [
+                                            {
+                                                type: "scattergeo",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolar: [
+                                            {
+                                                type: "scatterpolar",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        histogram: [
+                                            {
+                                                marker: {
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "histogram",
+                                            },
+                                        ],
+                                        scattergl: [
+                                            {
+                                                type: "scattergl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatter3d: [
+                                            {
+                                                type: "scatter3d",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermap: [
+                                            {
+                                                type: "scattermap",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermapbox: [
+                                            {
+                                                type: "scattermapbox",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterternary: [
+                                            {
+                                                type: "scatterternary",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattercarpet: [
+                                            {
+                                                type: "scattercarpet",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        carpet: [
+                                            {
+                                                aaxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                baxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                type: "carpet",
+                                            },
+                                        ],
+                                        table: [
+                                            {
+                                                cells: {
+                                                    fill: { color: "#EBF0F8" },
+                                                    line: { color: "white" },
+                                                },
+                                                header: {
+                                                    fill: { color: "#C8D4E3" },
+                                                    line: { color: "white" },
+                                                },
+                                                type: "table",
+                                            },
+                                        ],
+                                        barpolar: [
+                                            {
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "barpolar",
+                                            },
+                                        ],
+                                        pie: [{ automargin: true, type: "pie" }],
+                                    },
+                                    layout: {
+                                        autotypenumbers: "strict",
+                                        colorway: [
+                                            "#636efa",
+                                            "#EF553B",
+                                            "#00cc96",
+                                            "#ab63fa",
+                                            "#FFA15A",
+                                            "#19d3f3",
+                                            "#FF6692",
+                                            "#B6E880",
+                                            "#FF97FF",
+                                            "#FECB52",
+                                        ],
+                                        font: { color: "#2a3f5f" },
+                                        hovermode: "closest",
+                                        hoverlabel: { align: "left" },
+                                        paper_bgcolor: "white",
+                                        plot_bgcolor: "#E5ECF6",
+                                        polar: {
+                                            bgcolor: "#E5ECF6",
+                                            angularaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            radialaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        ternary: {
+                                            bgcolor: "#E5ECF6",
+                                            aaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            baxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            caxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        colorscale: {
+                                            sequential: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            sequentialminus: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            diverging: [
+                                                [0, "#8e0152"],
+                                                [0.1, "#c51b7d"],
+                                                [0.2, "#de77ae"],
+                                                [0.3, "#f1b6da"],
+                                                [0.4, "#fde0ef"],
+                                                [0.5, "#f7f7f7"],
+                                                [0.6, "#e6f5d0"],
+                                                [0.7, "#b8e186"],
+                                                [0.8, "#7fbc41"],
+                                                [0.9, "#4d9221"],
+                                                [1, "#276419"],
+                                            ],
+                                        },
+                                        xaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        yaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        scene: {
+                                            xaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            yaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            zaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                        },
+                                        shapedefaults: { line: { color: "#2a3f5f" } },
+                                        annotationdefaults: {
+                                            arrowcolor: "#2a3f5f",
+                                            arrowhead: 0,
+                                            arrowwidth: 1,
+                                        },
+                                        geo: {
+                                            bgcolor: "white",
+                                            landcolor: "#E5ECF6",
+                                            subunitcolor: "white",
+                                            showland: true,
+                                            showlakes: true,
+                                            lakecolor: "white",
+                                        },
+                                        title: { x: 0.05 },
+                                        mapbox: { style: "light" },
+                                    },
+                                },
+                                xaxis: {
+                                    anchor: "y",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Language" },
+                                    tickangle: -45,
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                yaxis: {
+                                    anchor: "x",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Median Editcount" },
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                legend: { tracegroupgap: 0 },
+                                margin: { t: 60, l: 40, r: 40, b: 100 },
+                                barmode: "relative",
+                                title: {
+                                    text: "Median Editcount per Language (feminsim dataset)",
+                                    font: { color: "#ffd000" },
+                                },
+                                font: { color: "#ffd000", family: "Courier New" },
+                                paper_bgcolor: "#710373",
+                                plot_bgcolor: "#710373",
+                            },
+                            { displayModeBar: false, displaylogo: false, responsive: true }
+                        );
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="plotly-block">
+            <div class="plotly-plot">
+                <script type="text/javascript">
+                    window.PlotlyConfig = { MathJaxConfig: "local" };
+                </script>
+                <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+                <div id="4fc77c50-f1f6-4895-8b44-829128da4371" class="plotly-graph-div"
+                    style="height: 100%; width: 100%"></div>
+                <script type="text/javascript">
+                    window.PLOTLYENV = window.PLOTLYENV || {};
+                    if (document.getElementById("4fc77c50-f1f6-4895-8b44-829128da4371")) {
+                        Plotly.newPlot(
+                            "4fc77c50-f1f6-4895-8b44-829128da4371",
+                            [
+                                {
+                                    hovertemplate:
+                                        "Language=%{x}\u003cbr\u003eMedian Editcount=%{y}\u003cextra\u003e\u003c\u002fextra\u003e",
+                                    legendgroup: "",
+                                    marker: { color: "#440a9b", pattern: { shape: "" } },
+                                    name: "",
+                                    orientation: "v",
+                                    showlegend: false,
+                                    textposition: "auto",
+                                    x: [
+                                        "English",
+                                        "German",
+                                        "Catalan",
+                                        "French",
+                                        "Russian",
+                                        "Italian",
+                                        "Japanese",
+                                        "Serbian",
+                                        "Spanish",
+                                        "Polish",
+                                        "Arabic",
+                                        "Czech",
+                                        "Norwegian",
+                                        "Turkish",
+                                        "Korean",
+                                        "Finnish",
+                                        "Vietnamese",
+                                        "Hungarian",
+                                        "Dutch",
+                                        "Portuguese",
+                                        "Ukrainian",
+                                        "Chinese",
+                                        "Swedish",
+                                        "Indonesian",
+                                        "Persian",
+                                        "Chechen",
+                                        "Cebuano",
+                                        "EgyptianArabic",
+                                        "Waray-Waray",
+                                        "Tatar",
+                                    ],
+                                    xaxis: "x",
+                                    y: {
+                                        dtype: "f8",
+                                        bdata:
+                                            "AAAAAAAAQ0AAAAAAAABAQAAAAAAAAD9AAAAAAAAAO0AAAAAAAAA7QAAAAAAAADpAAAAAAAAAOEAAAAAAAAA4QAAAAAAAADZAAAAAAAAANkAAAAAAAAA2QAAAAAAAADVAAAAAAAAANUAAAAAAAAAzQAAAAAAAADNAAAAAAAAAMkAAAAAAAAAyQAAAAAAAADFAAAAAAAAAMEAAAAAAAAAuQAAAAAAAACxAAAAAAAAAKkAAAAAAAAAmQAAAAAAAACRAAAAAAAAAIkAAAAAAAAAgQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAQQAAAAAAAAAhA",
+                                    },
+                                    yaxis: "y",
+                                    type: "bar",
+                                },
+                            ],
+                            {
+                                template: {
+                                    data: {
+                                        histogram2dcontour: [
+                                            {
+                                                type: "histogram2dcontour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        choropleth: [
+                                            {
+                                                type: "choropleth",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        histogram2d: [
+                                            {
+                                                type: "histogram2d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        heatmap: [
+                                            {
+                                                type: "heatmap",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        contourcarpet: [
+                                            {
+                                                type: "contourcarpet",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        contour: [
+                                            {
+                                                type: "contour",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        surface: [
+                                            {
+                                                type: "surface",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                                colorscale: [
+                                                    [0.0, "#0d0887"],
+                                                    [0.1111111111111111, "#46039f"],
+                                                    [0.2222222222222222, "#7201a8"],
+                                                    [0.3333333333333333, "#9c179e"],
+                                                    [0.4444444444444444, "#bd3786"],
+                                                    [0.5555555555555556, "#d8576b"],
+                                                    [0.6666666666666666, "#ed7953"],
+                                                    [0.7777777777777778, "#fb9f3a"],
+                                                    [0.8888888888888888, "#fdca26"],
+                                                    [1.0, "#f0f921"],
+                                                ],
+                                            },
+                                        ],
+                                        mesh3d: [
+                                            {
+                                                type: "mesh3d",
+                                                colorbar: { outlinewidth: 0, ticks: "" },
+                                            },
+                                        ],
+                                        scatter: [
+                                            {
+                                                fillpattern: {
+                                                    fillmode: "overlay",
+                                                    size: 10,
+                                                    solidity: 0.2,
+                                                },
+                                                type: "scatter",
+                                            },
+                                        ],
+                                        parcoords: [
+                                            {
+                                                type: "parcoords",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolargl: [
+                                            {
+                                                type: "scatterpolargl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        bar: [
+                                            {
+                                                error_x: { color: "#2a3f5f" },
+                                                error_y: { color: "#2a3f5f" },
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "bar",
+                                            },
+                                        ],
+                                        scattergeo: [
+                                            {
+                                                type: "scattergeo",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterpolar: [
+                                            {
+                                                type: "scatterpolar",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        histogram: [
+                                            {
+                                                marker: {
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "histogram",
+                                            },
+                                        ],
+                                        scattergl: [
+                                            {
+                                                type: "scattergl",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatter3d: [
+                                            {
+                                                type: "scatter3d",
+                                                line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermap: [
+                                            {
+                                                type: "scattermap",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattermapbox: [
+                                            {
+                                                type: "scattermapbox",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scatterternary: [
+                                            {
+                                                type: "scatterternary",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        scattercarpet: [
+                                            {
+                                                type: "scattercarpet",
+                                                marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                            },
+                                        ],
+                                        carpet: [
+                                            {
+                                                aaxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                baxis: {
+                                                    endlinecolor: "#2a3f5f",
+                                                    gridcolor: "white",
+                                                    linecolor: "white",
+                                                    minorgridcolor: "white",
+                                                    startlinecolor: "#2a3f5f",
+                                                },
+                                                type: "carpet",
+                                            },
+                                        ],
+                                        table: [
+                                            {
+                                                cells: {
+                                                    fill: { color: "#EBF0F8" },
+                                                    line: { color: "white" },
+                                                },
+                                                header: {
+                                                    fill: { color: "#C8D4E3" },
+                                                    line: { color: "white" },
+                                                },
+                                                type: "table",
+                                            },
+                                        ],
+                                        barpolar: [
+                                            {
+                                                marker: {
+                                                    line: { color: "#E5ECF6", width: 0.5 },
+                                                    pattern: {
+                                                        fillmode: "overlay",
+                                                        size: 10,
+                                                        solidity: 0.2,
+                                                    },
+                                                },
+                                                type: "barpolar",
+                                            },
+                                        ],
+                                        pie: [{ automargin: true, type: "pie" }],
+                                    },
+                                    layout: {
+                                        autotypenumbers: "strict",
+                                        colorway: [
+                                            "#636efa",
+                                            "#EF553B",
+                                            "#00cc96",
+                                            "#ab63fa",
+                                            "#FFA15A",
+                                            "#19d3f3",
+                                            "#FF6692",
+                                            "#B6E880",
+                                            "#FF97FF",
+                                            "#FECB52",
+                                        ],
+                                        font: { color: "#2a3f5f" },
+                                        hovermode: "closest",
+                                        hoverlabel: { align: "left" },
+                                        paper_bgcolor: "white",
+                                        plot_bgcolor: "#E5ECF6",
+                                        polar: {
+                                            bgcolor: "#E5ECF6",
+                                            angularaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            radialaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        ternary: {
+                                            bgcolor: "#E5ECF6",
+                                            aaxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            baxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                            caxis: {
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                ticks: "",
+                                            },
+                                        },
+                                        coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                                        colorscale: {
+                                            sequential: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            sequentialminus: [
+                                                [0.0, "#0d0887"],
+                                                [0.1111111111111111, "#46039f"],
+                                                [0.2222222222222222, "#7201a8"],
+                                                [0.3333333333333333, "#9c179e"],
+                                                [0.4444444444444444, "#bd3786"],
+                                                [0.5555555555555556, "#d8576b"],
+                                                [0.6666666666666666, "#ed7953"],
+                                                [0.7777777777777778, "#fb9f3a"],
+                                                [0.8888888888888888, "#fdca26"],
+                                                [1.0, "#f0f921"],
+                                            ],
+                                            diverging: [
+                                                [0, "#8e0152"],
+                                                [0.1, "#c51b7d"],
+                                                [0.2, "#de77ae"],
+                                                [0.3, "#f1b6da"],
+                                                [0.4, "#fde0ef"],
+                                                [0.5, "#f7f7f7"],
+                                                [0.6, "#e6f5d0"],
+                                                [0.7, "#b8e186"],
+                                                [0.8, "#7fbc41"],
+                                                [0.9, "#4d9221"],
+                                                [1, "#276419"],
+                                            ],
+                                        },
+                                        xaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        yaxis: {
+                                            gridcolor: "white",
+                                            linecolor: "white",
+                                            ticks: "",
+                                            title: { standoff: 15 },
+                                            zerolinecolor: "white",
+                                            automargin: true,
+                                            zerolinewidth: 2,
+                                        },
+                                        scene: {
+                                            xaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            yaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                            zaxis: {
+                                                backgroundcolor: "#E5ECF6",
+                                                gridcolor: "white",
+                                                linecolor: "white",
+                                                showbackground: true,
+                                                ticks: "",
+                                                zerolinecolor: "white",
+                                                gridwidth: 2,
+                                            },
+                                        },
+                                        shapedefaults: { line: { color: "#2a3f5f" } },
+                                        annotationdefaults: {
+                                            arrowcolor: "#2a3f5f",
+                                            arrowhead: 0,
+                                            arrowwidth: 1,
+                                        },
+                                        geo: {
+                                            bgcolor: "white",
+                                            landcolor: "#E5ECF6",
+                                            subunitcolor: "white",
+                                            showland: true,
+                                            showlakes: true,
+                                            lakecolor: "white",
+                                        },
+                                        title: { x: 0.05 },
+                                        mapbox: { style: "light" },
+                                    },
+                                },
+                                xaxis: {
+                                    anchor: "y",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Language" },
+                                    tickangle: -45,
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                yaxis: {
+                                    anchor: "x",
+                                    domain: [0.0, 1.0],
+                                    title: { text: "Median Editcount" },
+                                    color: "#ffd000",
+                                    gridcolor: "black",
+                                },
+                                legend: { tracegroupgap: 0 },
+                                margin: { t: 60, l: 40, r: 40, b: 100 },
+                                barmode: "relative",
+                                title: {
+                                    text: "Median Editcount per Language (random dataset)",
+                                    font: { color: "#ffd000" },
+                                },
+                                font: { color: "#ffd000", family: "Courier New" },
+                                paper_bgcolor: "#710373",
+                                plot_bgcolor: "#710373",
+                            },
+                            { displayModeBar: false, displaylogo: false, responsive: true }
+                        );
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                The number of edits often indicates the intensity of discussions and differences of opinion about
+                articles. it can be seen that in the feminist dataset, English, German and Italian are noticeable for
+                their relatively high number of edits. In the random dataset, only English stands out the most. The
+                graphs probably also simply reflect the size of the Wikipedia communities. However, it is also
+                noticeable that articles in the feminism category are more ‘’fought over‘’, as the number of edits is
+                significantly higher compared to the random data set.
+            </p>
+        </div>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>history of article creation in years per language</strong>
+    </p>
+
+    <div class="ssa-container">
+        <div class="slider-container">
+            <img src="assets/ridge_plot_fem.png" alt="Before" class="slider-base">
+            <div class="slider-overlay">
+                <img src="assets/ridge_plot_rand.png" alt="After">
+            </div>
+            <div class="slider-handle"></div>
+        </div>
+        <script src="img_slider.js"></script>
+    </div>
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                When comparing the time of creation of feminist and random articles, some trends can be identified. In
+                many languages, there was a peak in both data sets between 2005 and 2010. However, in the feminist data
+                set, it can be seen that there were also new rises around 2017/18 and later. In some languages, there
+                was even only the last peak that stood out.
+            </p>
+        </div>
+    </div>
+
+    <p class="ssa-subheader">
+        <strong>conclusion</strong>
+    </p>
+
+    <div class="ssa-container">
+        <div class="ssa-block">
+            <p>
+                Based on the data collected, it is clear that Wikipedia's apparently ‘global’ knowledge is still heavily
+                centred on the English-language edition. In many other language versions, a significant proportion of
+                feminist articles are missing completely. In addition, feminist entries, where they exist, are edited
+                much more frequently than articles from the random dataset, which indicates more intense discussion
+                processes. Growth peaks in individual languages do not occur in isolation, but are linked to each other
+                over time and appear to spread across language boundaries.
+            </p>
+            <p>
+                However, these findings only provide selective insights into the complex structures of Wikipedia and are
+                no alternative to a comprehensive evaluation. Instead, they mark starting points for further analysis.
+            </p>
+        </div>
+    </div>
 
     <footer>
         <p>please excuse any bugs ^^</p>
