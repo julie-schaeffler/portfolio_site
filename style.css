@@ -817,3 +817,24 @@ footer {
   cursor: ew-resize;
   z-index: 2;
 }
+
+.github-block {
+  text-align: center;
+  padding-top: 5vh;
+}
+
+.github-block a {
+  text-decoration: none;
+  color: #ffd000;
+}
+
+.github-block a:hover {
+  font-weight: 800;
+  color: #ffd000;
+}
+
+.ascii-github {
+    padding-top: 0vh;
+    line-height: 100%;
+    font-size: 3.5px !important;
+}

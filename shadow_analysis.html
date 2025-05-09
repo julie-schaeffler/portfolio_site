@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/icon.svg" type="image/svg">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <title>social shadow analysis</title>
-  </head>
-  <body>
-    <header>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/icon.svg" type="image/svg">
+  <link rel="stylesheet" href="style.css">
+  <title>social shadow analysis</title>
+</head>
+
+<body>
+  <header>
     <a href="index.html">julie schäffler</a>
     <nav>
-        <ul>
-            <li><a href="info.html">cv,</a></li>
-            <li><a href="portfolio.html">portfolio,</a></li>
-            <li><a href="contact.html">contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="info.html">cv,</a></li>
+        <li><a href="portfolio.html">portfolio,</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
     </nav>
-</header>
-<h1 class="project-title">social shadow analysis</h1>
-<section >
-  
-  <pre id="ascii_sun"></pre>
-  <script>
-            const frames1 = [
+  </header>
+  <h1 class="project-title">social shadow analysis</h1>
+  <section>
 
-`          .      '      .           
+    <pre id="ascii_sun"></pre>
+    <script>
+      const frames1 = [
+
+        `          .      '      .           
     .      .     :     .      .     
      '.        ______       .'      
        '  _.-"´      ´"-._ '        
@@ -43,7 +44,7 @@
      |:::| _::|: :|:::|:===:|::|    
      !_[]![_]_!_[]![]_!_[__]![]!    `,
 
-`                                    
+        `                                    
            .     :     .            
                ______               
        '  _.-"´      ´"-._ '        
@@ -60,134 +61,231 @@
      |:::| _::|: :|:::|:===:|::|    
      !_[]![_]_!_[]![]_!_[__]![]!  `
 
-];
-let i1 = 0;
-const el1 = document.getElementById('ascii_sun');
-const fps1 = 3;
-const interval1 = 1000 / fps1;
-setInterval(() => {
-  el1.textContent = frames1[i1++ % frames1.length];
-}, interval1);
-  </script>
+      ];
+      let i1 = 0;
+      const el1 = document.getElementById('ascii_sun');
+      const fps1 = 3;
+      const interval1 = 1000 / fps1;
+      setInterval(() => {
+        el1.textContent = frames1[i1++ % frames1.length];
+      }, interval1);
+    </script>
 
-<div id="ssa-intro">
-  <p>
-    Sunlight is one of the most important factors for well-being and health, especially in urban spaces. This Unity based simulative research project explores the connection between social status and the accessibility of sunlight in cities, using Berlin as an example.  
-  </p>
-  <p>
-    Using computational lighting simulations, the project looks into which neighborhoods receive the lowest amount of sunlight on their buildings and analyzes how these results are linked to socio-economic indicators.
-  </p>
-</div>
-  <img src="assets/berlinmap.png" class="berlin_map_img">
-  <p class="ssa-subheader">
-    <strong>context</strong>
-  </p>
-  <div class="ssa-container">
-    <div class="ssa-block">
+    <div id="ssa-intro">
       <p>
-      Sunshine accessibility is crucial in shaping the urban climate and public health. Limited exposure to natural light, which is often caused by shading from buildings, can significantly impact local climatic conditions and human health.
+        Sunlight is one of the most important factors for well-being and health, especially in urban spaces. This Unity
+        based simulative research project explores the connection between social status and the accessibility of
+        sunlight in cities, using Berlin as an example.
       </p>
       <p>
-        Research shows that architectural shadows can have an influence on temperature, for instance, which can result in increased energy consumption and discomfort for local residents. For such reasons, a study by Rehan et al. (2015) shows the importance of applying shadow analysis in urban planning.
-      </p>
-      <p>
-        In addition, the lack of exposure to sunlight has been linked to a range of health problems, including vitamin D deficiency and autoimmune diseases. 
-      </p>
-      <p>
-        Alfredsson et al. (2020) shows how insufficient access to sunlight has become a public health issue. These findings highlight the need for urban design to consider sufficient access to sunlight for its residents.
-      </p>
-      <p>
-        This project aims to address these challenges by using Unity to create a 3D visualization of the layout of Berlin, allowing the calculation of how sunlight interacts with urban structures. Furthermore, by providing a web tool to simulate solar exposure on user-defined areas, the project attempts to bring attention to the role of sunlight in the well being of the city
+        Using computational lighting simulations, the project looks into which neighborhoods receive the lowest amount
+        of sunlight on their buildings and analyzes how these results are linked to socio-economic indicators.
       </p>
     </div>
+    <img src="assets/berlinmap.png" class="berlin_map_img">
+    <p class="ssa-subheader">
+      <strong>context</strong>
+    </p>
+    <div class="ssa-container">
+      <div class="ssa-block">
+        <p>
+          Sunshine accessibility is crucial in shaping the urban climate and public health. Limited exposure to natural
+          light, which is often caused by shading from buildings, can significantly impact local climatic conditions and
+          human health.
+        </p>
+        <p>
+          Research shows that architectural shadows can have an influence on temperature, for instance, which can result
+          in increased energy consumption and discomfort for local residents. For such reasons, a study by Rehan et al.
+          (2015) shows the importance of applying shadow analysis in urban planning.
+        </p>
+        <p>
+          In addition, the lack of exposure to sunlight has been linked to a range of health problems, including vitamin
+          D deficiency and autoimmune diseases.
+        </p>
+        <p>
+          Alfredsson et al. (2020) shows how insufficient access to sunlight has become a public health issue. These
+          findings highlight the need for urban design to consider sufficient access to sunlight for its residents.
+        </p>
+        <p>
+          This project aims to address these challenges by using Unity to create a 3D visualization of the layout of
+          Berlin, allowing the calculation of how sunlight interacts with urban structures. Furthermore, by providing a
+          web tool to simulate solar exposure on user-defined areas, the project attempts to bring attention to the role
+          of sunlight in the well being of the city
+        </p>
+      </div>
 
-  </div>
+    </div>
 
-  <video class="scanVideo" src="assets/solarscan01.mp4" autoplay loop muted playsinline></video>
+    <video class="scanVideo" src="assets/solarscan01.mp4" autoplay loop muted playsinline></video>
 
-  <p class="ssa-subheader">
-    <strong>simulation approach</strong>
-  </p>
-  <div class="ssa-container">
-    <div class="ssa-block">
-      <p>
-        To simulate the sunlight exposure of urban buildings in Berlin, a 3D city model was created using open data made available by the <a href="https://www.berlin.de/sen/sbw/stadtdaten/stadtwissen/digitale-innenstadt/3d-modell/">Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen Berlin</a>. Socio-economic statistics, including neighborhood status indices and population data, were gathered from the <a href="https://www.berlin.de/sen/sbw/stadtdaten/stadtwissen/monitoring-soziale-stadtentwicklung/">same institution</a>. These neighbourhoods were computed as 2D polygons and spatially mapped onto the 3D building model.
-      </p>
-      <p>
-        For each polygon representing a neighbourhood, corresponding building surfaces were identified and calculated for solar exposure. A custom raycasting algorithm was used to simulate if sunlight could reach each surface at a given time. Monte Carlo sampling was used to generate multiple random points on each surface to increase the precision of the simulation. From each point, a ray was cast towards a virtual sun to check for obstructions caused by surrounding buildings.
-      </p>
-      <p>
-        The position of the sun was calculated dynamically by implementing a sun position algorithm (adapted from <a href="https://github.com/nminhhoangit/unity-sun-calculator">unity-sun-calculator</a>), which controlled a directional light source in Unity. This allowed an accurate simulation of sunlight over time.
-      </p>
-      <p>
-        After executing this process for all buildings in a neighborhood, the percentage of sunlit surfaces was taken for each area, providing a basis for comparing access to sunlight between different parts of the city.
-      </p>
+    <p class="ssa-subheader">
+      <strong>simulation approach</strong>
+    </p>
+    <div class="ssa-container">
+      <div class="ssa-block">
+        <p>
+          To simulate the sunlight exposure of urban buildings in Berlin, a 3D city model was created using open data
+          made available by the <a
+            href="https://www.berlin.de/sen/sbw/stadtdaten/stadtwissen/digitale-innenstadt/3d-modell/">Senatsverwaltung
+            für Stadtentwicklung, Bauen und Wohnen Berlin</a>. Socio-economic statistics, including neighborhood status
+          indices and population data, were gathered from the <a
+            href="https://www.berlin.de/sen/sbw/stadtdaten/stadtwissen/monitoring-soziale-stadtentwicklung/">same
+            institution</a>. These neighbourhoods were computed as 2D polygons and spatially mapped onto the 3D building
+          model.
+        </p>
+        <p>
+          For each polygon representing a neighbourhood, corresponding building surfaces were identified and calculated
+          for solar exposure. A custom raycasting algorithm was used to simulate if sunlight could reach each surface at
+          a given time. Monte Carlo sampling was used to generate multiple random points on each surface to increase the
+          precision of the simulation. From each point, a ray was cast towards a virtual sun to check for obstructions
+          caused by surrounding buildings.
+        </p>
+        <p>
+          The position of the sun was calculated dynamically by implementing a sun position algorithm (adapted from <a
+            href="https://github.com/nminhhoangit/unity-sun-calculator">unity-sun-calculator</a>), which controlled a
+          directional light source in Unity. This allowed an accurate simulation of sunlight over time.
+        </p>
+        <p>
+          After executing this process for all buildings in a neighborhood, the percentage of sunlit surfaces was taken
+          for each area, providing a basis for comparing access to sunlight between different parts of the city.
+        </p>
+      </div>
     </div>
-  </div>
 
-  <p class="ssa-subheader">
-    <strong>statistical analysis</strong>
-  </p>
-  <div class="ssa-container">
-    <div class="ssa-block">
-      <p>
-        The simulation results were analyzed in relation to socio-economic data. Specifically, Pearson and Spearman correlation coefficients were calculated to identify a relationship between neighborhood status and solar exposure (absolute and per capita) and population size. The significance of the correlations was tested using p-values.
-      </p>
-      <p>
-        This analysis helps to show how access to natural light may be related to patterns of inequality or urban disadvantage.
-      </p>
+    <p class="ssa-subheader">
+      <strong>statistical analysis</strong>
+    </p>
+    <div class="ssa-container">
+      <div class="ssa-block">
+        <p>
+          The simulation results were analyzed in relation to socio-economic data. Specifically, Pearson and Spearman
+          correlation coefficients were calculated to identify a relationship between neighborhood status and solar
+          exposure (absolute and per capita) and population size. The significance of the correlations was tested using
+          p-values.
+        </p>
+        <p>
+          This analysis helps to show how access to natural light may be related to patterns of inequality or urban
+          disadvantage.
+        </p>
+      </div>
     </div>
-  </div>
- 
-  <p class="ssa-subheader">
-    <strong>results</strong>
-  </p>
-  <div class="ssa-img-container">
-    <div class="ssa-block">
-      <p>
-        The analysis shows a moderate but statistically significant relationship between sunlight availability and socio-economic status. A Spearman correlation of -0.327 (p < 0.0001) suggests that areas with a higher social status index (lower social status) tend to receive less sunlight per person. Although this negative correlation is not strong, it points to a possible trend.
-      </p>
-      <p>
-        These results demonstrate how urban architecture and social structure can intersect in often unexpected ways. Poorer planning areas may prioritize architectural density and greater building height, factors that could reduce solar access. But, given the moderate strength of the correlation, it's likely that other, not yet identified variables, also influence access to sunlight for residents.
-      </p>
-    </div>
-    <div class="ssa-block">
-      <img src="assets/correl.png" class="correl_img">
-    </div>
-  </div>
 
-  <div class="ssa-container">
-    <div class="ssa-block">
-      <p>
-        Furthermore, this project is based on multiple simplifying assumptions. For example, the raycasting using Monte Carlo sampling, involves geometric and computational approximations. The socio-economic data and the 3D model may also contain inaccuracies or lack resolution. Also, the simulation only represents static conditions, like solar access, which was only calculated for a few points in time, rather than covering a whole year, which would have taken far too long.
-      </p>
-      <p>
-        To increase the scope and accuracy of the project, future work could extend the simulation to cover a full year with increased computational power. Improved 3D data, especially access to detailed window information, would make the simulation more accurate by better capturing actual indoor light exposure. By including additional variables, such as building height or orientation, in the simulation, specific factors behind the found correlations could be identified. In addition, looking at other indicators, such as rental prices or access to public space, could give a better understanding of how social factors are related to solar access. 
-      </p>
+    <p class="ssa-subheader">
+      <strong>results</strong>
+    </p>
+    <div class="ssa-img-container">
+      <div class="ssa-block">
+        <p>
+          The analysis shows a moderate but statistically significant relationship between sunlight availability and
+          socio-economic status. A Spearman correlation of -0.327 (p < 0.0001) suggests that areas with a higher social
+            status index (lower social status) tend to receive less sunlight per person. Although this negative
+            correlation is not strong, it points to a possible trend. </p>
+            <p>
+              These results demonstrate how urban architecture and social structure can intersect in often unexpected
+              ways. Poorer planning areas may prioritize architectural density and greater building height, factors that
+              could reduce solar access. But, given the moderate strength of the correlation, it's likely that other,
+              not yet identified variables, also influence access to sunlight for residents.
+            </p>
+      </div>
+      <div class="ssa-block">
+        <img src="assets/correl.png" class="correl_img">
+      </div>
     </div>
-  </div>
-  <p class="ssa-subheader">
-    <strong>literature</strong>
-  </p>
-  <div class="ssa-container">
-    <div class="ssa-block-lit">
-      <ul>
-        <li><a>Rehan, SM Tafsirul Islam, and Kazi Saiful Islam. "Analysis of building shadow in urban planning: A review." Article. Disponível 84 (2015)</a></li>
-        <li><a>Neale, R. E., et al. "The effects of exposure to solar radiation on human health." Photochemical & Photobiological Sciences (2023)</a></li>
-        <li><a>Alfredsson, Lars, et al. "Insufficient sun exposure has become a real public health problem." International Journal of Environmental Research and Public Health (2020)</a></li>
-        <li><a>Littlefair, Paul. "Daylight, sunlight and solar gain in the urban environment." _Solar Energy_ 70.3 (2001): 177-185</a></li>
+
+    <div class="ssa-container">
+      <div class="ssa-block">
+        <p>
+          Furthermore, this project is based on multiple simplifying assumptions. For example, the raycasting using
+          Monte Carlo sampling, involves geometric and computational approximations. The socio-economic data and the 3D
+          model may also contain inaccuracies or lack resolution. Also, the simulation only represents static
+          conditions, like solar access, which was only calculated for a few points in time, rather than covering a
+          whole year, which would have taken far too long.
+        </p>
+        <p>
+          To increase the scope and accuracy of the project, future work could extend the simulation to cover a full
+          year with increased computational power. Improved 3D data, especially access to detailed window information,
+          would make the simulation more accurate by better capturing actual indoor light exposure. By including
+          additional variables, such as building height or orientation, in the simulation, specific factors behind the
+          found correlations could be identified. In addition, looking at other indicators, such as rental prices or
+          access to public space, could give a better understanding of how social factors are related to solar access.
+        </p>
+      </div>
+    </div>
+    <p class="ssa-subheader">
+      <strong>literature</strong>
+    </p>
+    <div class="ssa-container">
+      <div class="ssa-block-lit">
+        <ul>
+          <li><a>Rehan, SM Tafsirul Islam, and Kazi Saiful Islam. "Analysis of building shadow in urban planning: A
+              review." Article. Disponível 84 (2015)</a></li>
+          <li><a>Neale, R. E., et al. "The effects of exposure to solar radiation on human health." Photochemical &
+              Photobiological Sciences (2023)</a></li>
+          <li><a>Alfredsson, Lars, et al. "Insufficient sun exposure has become a real public health problem."
+              International Journal of Environmental Research and Public Health (2020)</a></li>
+          <li><a>Littlefair, Paul. "Daylight, sunlight and solar gain in the urban environment." _Solar Energy_ 70.3
+              (2001): 177-185</a></li>
         </ul>
+      </div>
     </div>
+    <p class="ssa-subheader">
+      <strong>unity tool</strong>
+    </p>
+    <div class="ssa-container">
+      <div class="ssa-block">
+        <p>
+          The Unity tool below allows you to perform a shadow analysis for a specific area, such as a window or
+          photovoltaic panel, in Berlin. You can move over the city using the arrow keys or "wasd", you can look around
+          with the mouse and move up by scrolling. By clicking on the Shadow Analysis button you can define a plane to
+          be analyzed and you can place it on any building of the map. The remaining settings allow you to define the
+          simulation period and the resolution. Clicking on calculate will start the simulation and display its results
+          on the screen. The slider that appears will allow you to view an individual time stamp of the simulated
+          period.
+        </p>
+      </div>
+    </div>
+
+  </section>
+  <div class="unity-container">
+    <iframe frameborder="0" src="https://itch.io/embed-upload/13463654?color=ffd000" allowfullscreen="" width="1280"
+      height="740"><a href="https://julie1000.itch.io/social-shadow-analysis">Play social shadow analysis on
+        itch.io</a></iframe>
+  </div>
+
+  <div class="github-block">
+    <div>
+      <p>
+        Take a look at the source code here:
+      </p>
+    </div>
+    <pre class="ascii-github">
+      <a href="https://github.com/julie-schaeffler/social_shadow_analysis">
+                      @@@@@@@@@@@@@@                                                                                              
+                  @@@@@@@@@@@@@@@@@@@@@                                                                                           
+                @@@@@@@@@@@@@@@@@@@@@@@@@                                                                                         
+               @@@@   @@@@@@@@@@@@@   @@@@@                                                                                       
+              @@@@@                   @@@@@@             @@@@@@@@                 @@@      @@               @@                    
+             @@@@@@                   @@@@@@@          @@@@@   @    @@@    @@     @@@     @@@               @@@                   
+            @@@@@@                     @@@@@@         @@@                 @@@     @@@     @@@               @@@                   
+            @@@@@@                      @@@@@         @@@           @@@  @@@@@@@  @@@     @@@   @@@    @@@  @@@@@@@@@             
+            @@@@@@                      @@@@@@        @@@   @@@@@@  @@@   @@@     @@@@@@@@@@@   @@@    @@@  @@@   @@@@            
+            @@@@@@                      @@@@@@        @@@      @@@  @@@   @@@     @@@     @@@   @@@    @@@  @@@    @@@            
+            @@@@@@                     @@@@@@         @@@      @@@  @@@   @@@     @@@     @@@   @@@    @@@  @@@    @@@            
+             @@@@@@@                  @@@@@@@          @@@@@@@@@@@  @@@   @@@@    @@@     @@@   @@@@  @@@@  @@@@  @@@@            
+             @@@  @@@@              @@@@@@@@             @@@@@@@    @@@     @@@@  @@@      @@    @@@@@ @@   @@ @@@@@              
+               @@@  @@@@@        @@@@@@@@@@                                                                                       
+                @@@              @@@@@@@@@                                                                                        
+                 @@@@            @@@@@@@                                                                                          
+                    @@@@         @@@@@                                                                                             
+                    </a>
+</pre>
   </div>
 
 
-  
-</section>
-<div class="unity-container">
-  <iframe frameborder="0" src="https://itch.io/embed-upload/13463654?color=ffd000" allowfullscreen="" width="1280" height="740"><a href="https://julie1000.itch.io/social-shadow-analysis">Play social shadow analysis on itch.io</a></iframe>        
   <footer>
-          <p>please excuse any bugs ^^</p>
-      </footer>
+    <p>please excuse any bugs ^^</p>
+  </footer>
 
-  </body>
+</body>
+
 </html>

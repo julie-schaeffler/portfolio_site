@@ -6,14 +6,12 @@ let current = null;
       const img = e.target.closest('.gallery img');
       if (!img) return;
       e.preventDefault();
-      // set as current and compute offset
       current = img;
       isMoving = false;
       const rect = img.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
       offsetY = e.clientY - rect.top;
       img.classList.add('dragged');
-      // initial place under cursor via fixed
       img.style.left = (e.clientX - offsetX) + 'px';
       img.style.top  = (e.clientY - offsetY) + 'px';
       window.addEventListener('mousemove', onMove);

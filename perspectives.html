@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>td dump</title>
     <link rel="icon" href="assets/icon.svg" type="image/svg">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
+
 <body>
     <header>
         <a href="index.html">julie schäffler</a>
@@ -27,24 +28,24 @@
             <button class="muteToggle" id="muteToggle">
                 <img src="assets/speaker.slash.fill.svg" alt="Unmute" id="muteIcon">
             </button>
-        </div> 
-        
+        </div>
+
         <script>
             const video = document.getElementById("fracVideo");
             const muteToggle = document.getElementById("muteToggle");
             const muteIcon = document.getElementById("muteIcon");
-        
+
             muteToggle.addEventListener("click", () => {
-    if (video.muted) {
-        video.muted = false;
-        muteIcon.src = "assets/speaker.fill.svg";         // Symbol für Ton an
-        muteIcon.style.transform = "scale(0.8)";          // Standardgröße
-    } else {
-        video.muted = true;
-        muteIcon.src = "assets/speaker.slash.fill.svg";        // Symbol für stumm
-        muteIcon.style.transform = "scale(1)";        // Größeres Symbol für stumm
-    }
-});
+                if (video.muted) {
+                    video.muted = false;
+                    muteIcon.src = "assets/speaker.fill.svg";         // Symbol für Ton an
+                    muteIcon.style.transform = "scale(0.8)";          // Standardgröße
+                } else {
+                    video.muted = true;
+                    muteIcon.src = "assets/speaker.slash.fill.svg";        // Symbol für stumm
+                    muteIcon.style.transform = "scale(1)";        // Größeres Symbol für stumm
+                }
+            });
         </script>
 
     </div>
@@ -55,7 +56,7 @@
             <p>Works portraying bodily alienation through distorted self-perception.
             </p>
         </div>
-    </div> 
+    </div>
 
     <div class="td-vid-container">
         <div class="td-vid-block">
@@ -69,9 +70,9 @@
         <div class="td-vid-block">
             <video class="tdVideo" src="assets/digi_rug3.mp4" autoplay loop muted playsinline></video>
         </div>
-      </div>
+    </div>
 
-      <div class="td-vid-container">
+    <div class="td-vid-container">
         <div class="td-vid-block">
             <video class="pixelVideo" src="assets/pixelsort.mp4" autoplay loop muted playsinline></video>
         </div>
@@ -81,4 +82,5 @@
         <p>please excuse any bugs ^^</p>
     </footer>
 </body>
+
 </html>
