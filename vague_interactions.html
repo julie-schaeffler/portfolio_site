@@ -282,15 +282,12 @@
         simplex = new SimplexNoise();
       };
 
-      // Hilfsfunktion: Zeichnet eine kreisförmige Fläche, gefüllt mit zufälligen ASCII-Zeichen
       function drawAsciiSurface(centerX, centerY, radius, fillColor) {
         p.textAlign(p.CENTER, p.CENTER);
         p.fill(fillColor);
-        // Schrittweite, um die Fläche zu füllen – hier kannst du experimentieren
         let step = 20;
         for (let ix = centerX - radius; ix <= centerX + radius; ix += step) {
           for (let iy = centerY - radius; iy <= centerY + radius; iy += step) {
-            // Prüfe, ob der Punkt im Kreis liegt
             if (p.dist(ix, iy, centerX, centerY) <= radius) {
               let charCode = Math.floor(p.random(33, 127));
               let asciiChar = String.fromCharCode(charCode);
@@ -304,7 +301,6 @@
         p.clear();
         time += torusParams.pulseSpeed;
 
-        // Audioanalyse: Aktualisiere audioVolume
         if (analyser && dataArray) {
           analyser.getByteFrequencyData(dataArray);
           let sum = 0;
@@ -317,7 +313,6 @@
         let currentTime = millis();
         let deformationFactor = (currentTime - lastSpeechTime > 2000) ? 0.5 : 1;
 
-        // Passe pulseSpeed anhand des Audiopegels an (speechRate wurde entfernt)
         let targetPulseSpeed = 0.007 + (audioVolume * 0.001);
         torusParams.pulseSpeed = p.lerp(torusParams.pulseSpeed, targetPulseSpeed, 0.004);
 
@@ -342,7 +337,6 @@
         let highlightIndex = Math.floor((time * 230) % numShapes);
         let torusPoints = [];
 
-        // Berechne die Positionen der Torus-Punkte
         for (let i = 0; i < numShapes; i++) {
           let angle = p.TWO_PI * (i / numShapes);
           let noiseOffset = simplex.noise3D(Math.cos(angle), Math.sin(angle), time + i * 0.01);
@@ -354,7 +348,6 @@
 
 
 
-        // Ersetze die einzelnen Torus-Formen durch ASCII-Flächen
         for (let idx = torusPoints.length - 1; idx >= 0; idx--) {
           let pt = torusPoints[idx];
           let i = pt.index;
@@ -376,7 +369,6 @@
 
           let dynamicSize = torusParams.shapeSize * (1 + 0.9 * Math.abs(pt.noiseOffset)) * volumePulse;
 
-          // Statt einer vektorbasierten Form, zeichne eine ASCII-Fläche in einem Kreis
           drawAsciiSurface(pt.cx, pt.cy, dynamicSize, finalColor);
         }
       };
